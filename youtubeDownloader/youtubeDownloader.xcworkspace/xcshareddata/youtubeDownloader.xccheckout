@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>4466827E-8B8D-443F-A765-554E358FFA4A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>youtubeDownloader</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AC6B7594-4E99-47C1-B621-8983E39DF4DA</key>
+		<string>ssh://github.com/jmpg93/youtubeDownloader.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>youtubeDownloader/youtubeDownloader.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AC6B7594-4E99-47C1-B621-8983E39DF4DA</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jmpg93/youtubeDownloader.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AC6B7594-4E99-47C1-B621-8983E39DF4DA</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AC6B7594-4E99-47C1-B621-8983E39DF4DA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>youtubeDowloader</string>
+		</dict>
+	</array>
+</dict>
+</plist>

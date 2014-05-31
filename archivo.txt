@@ -1,3 +1,0 @@
-LEMA_E= hola. CAT_E= sus. INFO_E= f. USO_E= d. DEF_E= sus. EJEM_E= J.
-LEMA_E= holaa. CAT_E= sus. INFO_E= f. USO_E= d. DEF_E= sus. EJEM_E= J.
-LEMA_E= holab. CAT_E= sus. INFO_E= f. USO_E= d. DEF_E= sus. EJEM_E= J.
