@@ -42,3 +42,9 @@
 #define COCOAPODS_VERSION_MINOR_AFNetworking_Serialization 2
 #define COCOAPODS_VERSION_PATCH_AFNetworking_Serialization 4
 
+// XMLReader
+#define COCOAPODS_POD_AVAILABLE_XMLReader
+#define COCOAPODS_VERSION_MAJOR_XMLReader 0
+#define COCOAPODS_VERSION_MINOR_XMLReader 0
+#define COCOAPODS_VERSION_PATCH_XMLReader 2
+

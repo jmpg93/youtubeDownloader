@@ -15,11 +15,14 @@ PODS:
   - AFNetworking/Reachability (2.2.4)
   - AFNetworking/Security (2.2.4)
   - AFNetworking/Serialization (2.2.4)
+  - XMLReader (0.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.0)
+  - XMLReader (~> 0.0)
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  XMLReader: 2264fd2f8167343285a9943929c3b7e4b74626c0
 
 COCOAPODS: 0.33.1

@@ -7,12 +7,16 @@
 //
 
 #import "JPAppDelegate.h"
+#import "JPChannel.h"
 
 @implementation JPAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     // Insert code here to initialize your application
+    JPChannel *channel = [[JPChannel alloc]init];
+    [channel loadData];
+    //
 }
 
 @end
