@@ -17,7 +17,9 @@
 @property (nonatomic, assign) float rating;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *published;
+@property (nonatomic, strong) NSDate *dateReleased;
 
 -(id)initWithDicctionary:(NSDictionary *)dic;
 +(NSDate*) dateFromString:(NSString*)dateString;
+-(BOOL)isNew;
 @end

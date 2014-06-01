@@ -47,7 +47,6 @@
 - (void)scrapWithData:(NSData*) data
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
-        NSError *parseError = [[NSError alloc]init];
         NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:data
                                                               options:NSJSONWritingPrettyPrinted
                                                                 error:NULL];
@@ -65,7 +64,7 @@
             
 
         }
-
+        
         [self.delegate videoScrappingFinishedWithVideos:videos];
 
         

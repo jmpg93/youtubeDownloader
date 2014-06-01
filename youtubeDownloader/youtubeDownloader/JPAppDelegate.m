@@ -8,6 +8,7 @@
 
 #import "JPAppDelegate.h"
 #import "JPChannel.h"
+#import <gtm-oauth2/GTMOAuth2WindowController.h>
 
 @implementation JPAppDelegate
 
@@ -15,8 +16,8 @@
 {
     // Insert code here to initialize your application
     JPChannel *channel = [[JPChannel alloc]init];
+    [channel refreshWithTimeInterval:60*1];
     [channel loadData];
-    //
 }
 
 @end

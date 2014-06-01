@@ -10,7 +10,7 @@
 
 @interface JPChannel ()
 @property (nonatomic, strong) JPVideoScrapper *scrapper;
-
+@property (nonatomic, strong) JPVideoDownloader *donwloader;
 @end
 
 @implementation JPChannel 
@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
+        _donwloader = [[JPVideoDownloader alloc]init];
     }
     return self;
 }
@@ -28,11 +29,26 @@
 }
 
 -(void)videoScrappingFinishedWithVideos:(NSArray *)videos{
-    self.videos = videos;
-    JPVideoDownloader *donwloader = [[JPVideoDownloader alloc]init];
-    [donwloader downloadVideo:videos[0]];
+    self.videos = [[NSMutableArray alloc]initWithArray:videos];
+    for (JPVideo *video in videos) {
+        if ([video isNew]) {
+            [self.donwloader downloadVideo:video];
+        }
+    }
+}
+-(void)downLoadLatestVideo{
+    if (self.videos) {
+        [self.donwloader downloadVideo:self.videos[0]];
+    }
 }
 
+-(void)refreshWithTimeInterval:(int)time{
+    [NSTimer scheduledTimerWithTimeInterval:time
+                                     target:self
+                                   selector:@selector(loadData)
+                                   userInfo:nil
+                                    repeats:YES];
+}
 
 
 

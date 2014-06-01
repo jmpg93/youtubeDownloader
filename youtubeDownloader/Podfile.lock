@@ -15,14 +15,20 @@ PODS:
   - AFNetworking/Reachability (2.2.4)
   - AFNetworking/Security (2.2.4)
   - AFNetworking/Serialization (2.2.4)
+  - gtm-oauth2 (0.1.0):
+    - GTMHTTPFetcher
+  - GTMHTTPFetcher (0.1.0)
   - XMLReader (0.0.2)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.2.0)
+  - gtm-oauth2 (~> 0.1)
   - XMLReader (~> 0.0)
 
 SPEC CHECKSUMS:
   AFNetworking: ab63e259fe91eef4519b371ef0a4955af0e73e64
+  gtm-oauth2: 64f2d404a50676ab63b5437a02a7567da8f8b7fa
+  GTMHTTPFetcher: 0f02d5a5803dd08736462981064de6a7f59cf9bd
   XMLReader: 2264fd2f8167343285a9943929c3b7e4b74626c0
 
 COCOAPODS: 0.33.1

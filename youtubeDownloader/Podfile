@@ -1,3 +1,4 @@
 platform :osx, '10.9'
 pod 'AFNetworking' , '~> 2.2.0'
 pod 'XMLReader', '~> 0.0'
+pod 'gtm-oauth2', '~> 0.1'

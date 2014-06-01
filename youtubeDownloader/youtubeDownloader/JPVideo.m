@@ -17,22 +17,37 @@
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         //_rating = [[dic objectForKey:@"rating"]objectForKey:@"avarage"];
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
-        //NSDate *date = [JPVideo dateFromString:self.published];
+        _dateReleased = [JPVideo dateFromString:self.published];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
     }
     return self;
 }
 
-+(NSDate*) dateFromString:(NSString*)dateString
++(NSDate*) dateFromString:(NSMutableString*)dateString
 {
+    NSString *auxDate = [[dateString substringFromIndex:11] substringToIndex:8];
+    dateString = [NSMutableString stringWithString:[dateString substringToIndex:10]];
+    [dateString appendString:auxDate];
+    
     NSDate *date;
     NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    
     NSTimeZone *madridTZ = [NSTimeZone timeZoneWithName:@"Europe/Madrid"];
     [dateFormat setTimeZone:madridTZ];
-    [dateFormat setDateFormat:@"yyyy-MM-ddTHH:mm:ss.zzzz"];
+    [dateFormat setDateFormat:@"yyyy-MM-ddHH:mm:ss"];
     date = [dateFormat dateFromString:dateString];
+    
     return date;
+}
+
+-(BOOL)isNew{
+    
+    BOOL new = false;
+    NSDate *date = [NSDate date];
+    int time = [date timeIntervalSinceDate:self.dateReleased];
+    int timeAloowDownload = 2*60*60*24;
+    
+    new = (time < timeAloowDownload);
+    return new;
 }
 
 
