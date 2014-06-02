@@ -23,6 +23,7 @@
 		6C19F2F1193A2AA90042096D /* JPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F0193A2AA90042096D /* JPVideo.m */; };
 		6C19F2F4193A2D5A0042096D /* JPChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F3193A2D5A0042096D /* JPChannel.m */; };
 		6C19F2F7193A45BE0042096D /* JPVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */; };
+		6C19F438193CBADD0042096D /* libid3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C19F437193CBADD0042096D /* libid3.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +65,7 @@
 		6C19F2F3193A2D5A0042096D /* JPChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPChannel.m; sourceTree = "<group>"; };
 		6C19F2F5193A45BE0042096D /* JPVideoDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoDownloader.h; sourceTree = "<group>"; };
 		6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoDownloader.m; sourceTree = "<group>"; };
+		6C19F437193CBADD0042096D /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = "../../../Library/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos/libid3.a"; sourceTree = "<group>"; };
 		9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C19F438193CBADD0042096D /* libid3.a in Frameworks */,
 				6C19F2B1193A13F30042096D /* Cocoa.framework in Frameworks */,
 				200384F95442492698C6C74A /* libPods.a in Frameworks */,
 			);
@@ -112,6 +115,7 @@
 		6C19F2AF193A13F30042096D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6C19F437193CBADD0042096D /* libid3.a */,
 				6C19F2B0193A13F30042096D /* Cocoa.framework */,
 				6C19F2CF193A13F30042096D /* XCTest.framework */,
 				6C19F2B2193A13F30042096D /* Other Frameworks */,
@@ -456,6 +460,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				INFOPLIST_FILE = "youtubeDownloader/youtubeDownloader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -470,6 +478,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				INFOPLIST_FILE = "youtubeDownloader/youtubeDownloader-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

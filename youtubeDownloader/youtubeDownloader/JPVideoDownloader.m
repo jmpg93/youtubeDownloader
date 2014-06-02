@@ -1,4 +1,4 @@
-//
+ //
 //  JPVideoDownloader.m
 //  youtubeDownloader
 //
@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Jose Maria Puerta. All rights reserved.
 //
 #import <AFNetworking/AFNetworking.h>
+#import <AudioToolbox/AudioToolbox.h>
 #import "JPVideoDownloader.h"
 #import "JPVideo.h"
 @implementation JPVideoDownloader : NSObject 
@@ -39,11 +40,12 @@
     
     bool exist = [[NSFileManager defaultManager] fileExistsAtPath: filePath];
     
-    if(!exist){
+    if(exist){
         [manager GET:URL parameters:NULL
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  
                  [responseObject writeToFile:filePath atomically:YES];
+
              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"%@", error);
              }];

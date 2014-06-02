@@ -16,6 +16,7 @@
 {
     // Insert code here to initialize your application
     JPChannel *channel = [[JPChannel alloc]init];
+    [channel checkID3];
     [channel refreshWithTimeInterval:60*1];
     [channel loadData];
 }

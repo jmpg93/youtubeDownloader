@@ -18,6 +18,7 @@
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *published;
 @property (nonatomic, strong) NSDate *dateReleased;
+@property (nonatomic, strong) NSString *filePath;
 
 -(id)initWithDicctionary:(NSDictionary *)dic;
 +(NSDate*) dateFromString:(NSString*)dateString;

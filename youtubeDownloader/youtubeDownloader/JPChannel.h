@@ -19,4 +19,5 @@
 -(void)loadData;
 -(void)downLoadLatestVideo;
 -(void)refreshWithTimeInterval:(int)time;
+-(void)checkID3;
 @end
