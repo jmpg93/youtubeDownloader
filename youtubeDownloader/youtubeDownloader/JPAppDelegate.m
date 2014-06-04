@@ -16,6 +16,7 @@
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     self.channelArray = [[NSMutableArray alloc]init];
+    self.videosArray = [[NSMutableArray alloc]init];
     
     // Insert code here to initialize your application
     JPChannel *channel = [[JPChannel alloc]init];

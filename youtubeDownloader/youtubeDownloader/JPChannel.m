@@ -21,6 +21,7 @@
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
         _donwloader = [[JPVideoDownloader alloc]init];
+        _channelName = @"electropose1";
     }
     return self;
 }

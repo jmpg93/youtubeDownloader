@@ -15,6 +15,7 @@
 @interface JPChannel : NSObject <VideoScrapping>
 @property (nonatomic, strong) NSMutableArray *videos;
 @property (nonatomic, strong) NSString *feedURLVideos;
+@property (nonatomic, strong) NSString *channelName;
 
 -(void)loadData;
 -(void)downLoadLatestVideo;
