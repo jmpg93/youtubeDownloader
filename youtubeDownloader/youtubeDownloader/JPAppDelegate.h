@@ -8,8 +8,11 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JPAppDelegate : NSObject <NSApplicationDelegate>
+@interface JPAppDelegate : NSObject <NSApplicationDelegate, NSCollectionViewDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
+@property (strong, nonatomic) NSMutableArray *channelArray;
+@property (strong, nonatomic) NSMutableArray *videosArray;
+@property (weak) IBOutlet NSCollectionView *videosCollectionView;
 
 @end

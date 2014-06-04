@@ -9,16 +9,19 @@
 #import "JPVideo.h"
 
 @implementation JPVideo
+
 -(id)initWithDicctionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
         _title = [[dic objectForKey:@"title"]objectForKey:@"text"];
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
-        //_rating = [[dic objectForKey:@"rating"]objectForKey:@"avarage"];
+        _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
-        _dateReleased = [JPVideo dateFromString:self.published];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
+        
+        _dateReleased = [JPVideo dateFromString:self.published];
+        [self calcDurationInMinutes];
     }
     return self;
 }
@@ -37,6 +40,16 @@
     date = [dateFormat dateFromString:dateString];
     
     return date;
+}
+
+-(void)calcDurationInMinutes{
+    if (_duration) {
+        int minutes = (int)[self.duration integerValue] / 60;
+        int seconds = [self.duration integerValue] % 60;
+        
+        _duration = [NSString stringWithFormat:@"%d:%d", minutes, seconds];
+
+    }
 }
 
 -(BOOL)isNew{

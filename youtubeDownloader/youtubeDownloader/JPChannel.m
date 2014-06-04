@@ -14,7 +14,8 @@
 @property (nonatomic, strong) JPVideoDownloader *donwloader;
 @end
 
-@implementation JPChannel 
+@implementation JPChannel
+
 -(id)init{
     self = [super init];
     if (self) {
