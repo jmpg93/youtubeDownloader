@@ -40,7 +40,7 @@
     
     bool exist = [[NSFileManager defaultManager] fileExistsAtPath: filePath];
     
-    if(exist){
+    if(!exist){
         [manager GET:URL parameters:NULL
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  

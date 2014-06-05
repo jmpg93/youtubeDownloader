@@ -12,7 +12,12 @@
 
 #define FeedURL @"http://gdata.youtube.com/feeds/api/users/electropose1/uploads"
 
+@protocol VideosInfo;
+
 @interface JPChannel : NSObject <VideoScrapping>
+
+@property (strong) id <VideosInfo> delegate;
+
 @property (nonatomic, strong) NSMutableArray *videos;
 @property (nonatomic, strong) NSString *feedURLVideos;
 @property (nonatomic, strong) NSString *channelName;
@@ -21,4 +26,10 @@
 -(void)downLoadLatestVideo;
 -(void)refreshWithTimeInterval:(int)time;
 -(void)checkID3;
+@end
+
+@protocol VideosInfo <NSObject>
+
+- (void)channelHasInfoOfVideos:(NSArray*) videos;
+
 @end

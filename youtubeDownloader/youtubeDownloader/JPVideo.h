@@ -15,6 +15,8 @@
 @property (nonatomic, strong) NSURL *thumbnailImage;
 @property (nonatomic, strong) NSString *URL;
 @property (nonatomic, assign) float rating;
+@property (nonatomic, assign) float max;
+@property (nonatomic, assign) float min;
 @property (nonatomic, strong) NSString *description;
 @property (nonatomic, strong) NSString *published;
 @property (nonatomic, strong) NSDate *dateReleased;

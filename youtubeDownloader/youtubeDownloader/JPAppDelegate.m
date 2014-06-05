@@ -20,21 +20,29 @@
     
     // Insert code here to initialize your application
     JPChannel *channel = [[JPChannel alloc]init];
+    [channel setDelegate:self];
     //[channel checkID3];
-    [channel refreshWithTimeInterval:60*1];
+    [channel refreshWithTimeInterval:60*60];
     [channel loadData];
     
-    [channel addObserver:self
-              forKeyPath:@"videos"
-                 options:NSKeyValueChangeNewKey
-                 context:NULL];
+    
+    
 }
 
--(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context{
-    if ([keyPath isEqualToString:@"videos"]) {
-        [self.channelArray addObject:object];
-        self.videosArray = ((JPChannel*)object).videos;
+
+- (IBAction)donwloadVideo:(id)sender {
+    NSView *collectionView = ((NSButton *)sender).superview;
+    for (int i = 0; i < self.videosArray.count; i++) {
+        NSView *aux = self.videosCollectionView.subviews[i];
+        if ([aux isEqual:collectionView]) {
+            JPVideo *video = [self.videosArray objectAtIndex:i];
+        }
     }
+}
+-(void)channelHasInfoOfVideos:(NSArray *)videos{
+    [self.videosCollectionView setContent:videos];
+    self.videosArray = videos;
+    //[self.channelsCollectionView setContent:self.channelArray];
 }
 
 @end

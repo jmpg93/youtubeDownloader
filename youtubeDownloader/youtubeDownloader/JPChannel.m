@@ -21,7 +21,8 @@
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
         _donwloader = [[JPVideoDownloader alloc]init];
-        _channelName = @"electropose1";
+        _channelName = [[NSString alloc]init];
+        _channelName =  @"electropose1";
     }
     return self;
 }
@@ -38,6 +39,8 @@
             [self.donwloader downloadVideo:video];
         }
     }
+    
+    [self.delegate channelHasInfoOfVideos:self.videos];
 }
 -(void)downLoadLatestVideo{
     if (self.videos) {

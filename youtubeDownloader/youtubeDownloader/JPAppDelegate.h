@@ -7,13 +7,16 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "JPChannel.h"
 
-@interface JPAppDelegate : NSObject <NSApplicationDelegate, NSCollectionViewDelegate>
+@interface JPAppDelegate : NSObject <NSApplicationDelegate, NSCollectionViewDelegate, VideosInfo>
 
 @property (assign) IBOutlet NSWindow *window;
 @property (strong, nonatomic) NSMutableArray *channelArray;
 @property (strong, nonatomic) NSMutableArray *videosArray;
 @property (strong, nonatomic) NSMutableDictionary *loadedVideosDic;
+
 @property (weak) IBOutlet NSCollectionView *videosCollectionView;
+@property (weak) IBOutlet NSCollectionView *channelsCollectionView;
 
 @end

@@ -17,6 +17,8 @@
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
+        _max = 5;
+        _min = 0;
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
         
