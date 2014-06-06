@@ -38,9 +38,9 @@
     
     NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
     
-    bool exist = [[NSFileManager defaultManager] fileExistsAtPath: filePath];
+    video.donwloaded = [[NSFileManager defaultManager] fileExistsAtPath: filePath];
     
-    if(!exist){
+    if(!video.donwloaded && [video isNew]){
         [manager GET:URL parameters:NULL
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
                  
@@ -51,5 +51,27 @@
              }];
     }
 
+}
+-(void)forceDownloadVideo:(JPVideo *)video{
+    NSMutableString *URL = [[NSMutableString alloc]initWithString:@"http://youtubeinmp3.com/fetch/?video="];
+    [URL appendString:video.URL];
+    
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,   NSUserDomainMask, YES);
+    NSString *documentsDirectory = [paths objectAtIndex:0];
+    
+    NSMutableString *name = [[NSMutableString alloc]initWithString:video.title];
+    [name appendString:@".mp3"];
+    
+    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
+    
+
+    [manager GET:URL parameters:NULL
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             
+             [responseObject writeToFile:filePath atomically:YES];
+             
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"%@", error);
+         }];
 }
 @end

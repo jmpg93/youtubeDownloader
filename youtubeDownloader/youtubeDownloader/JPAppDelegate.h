@@ -16,7 +16,7 @@
 @property (strong, nonatomic) NSMutableArray *videosArray;
 @property (strong, nonatomic) NSMutableDictionary *loadedVideosDic;
 
-@property (weak) IBOutlet NSCollectionView *videosCollectionView;
-@property (weak) IBOutlet NSCollectionView *channelsCollectionView;
+@property (strong) IBOutlet NSCollectionView *videosCollectionView;
+@property (strong) IBOutlet NSCollectionView *channelsCollectionView;
 
 @end

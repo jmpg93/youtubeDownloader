@@ -30,6 +30,6 @@
 
 @protocol VideosInfo <NSObject>
 
-- (void)channelHasInfoOfVideos:(NSArray*) videos;
+- (void)channelHasInfoOfVideos:(JPChannel*) channel;
 
 @end

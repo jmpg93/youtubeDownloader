@@ -7,9 +7,15 @@
 //
 
 #import "JPAppDelegate.h"
+#import "JPVideoDownloader.h"
 #import "JPChannel.h"
 #import "JPVideo.h"
 #import <gtm-oauth2/GTMOAuth2WindowController.h>
+
+
+@interface JPAppDelegate()
+    @property (nonatomic, strong) JPVideoDownloader *donwloader;
+@end
 
 @implementation JPAppDelegate
 
@@ -17,6 +23,10 @@
 {
     self.channelArray = [[NSMutableArray alloc]init];
     self.videosArray = [[NSMutableArray alloc]init];
+    _donwloader = [[JPVideoDownloader alloc]init];
+    
+    
+    [self.channelsCollectionView setSelectable:YES];
     
     // Insert code here to initialize your application
     JPChannel *channel = [[JPChannel alloc]init];
@@ -31,18 +41,45 @@
 
 
 - (IBAction)donwloadVideo:(id)sender {
-    NSView *collectionView = ((NSButton *)sender).superview;
+    
+    NSButton *but = (NSButton*)sender;
+    NSView *collectionView = but.superview;
     for (int i = 0; i < self.videosArray.count; i++) {
         NSView *aux = self.videosCollectionView.subviews[i];
         if ([aux isEqual:collectionView]) {
             JPVideo *video = [self.videosArray objectAtIndex:i];
+            [but setEnabled:NO];
+            [but setNeedsDisplay:YES];
+            [self.donwloader forceDownloadVideo:video];
         }
     }
 }
--(void)channelHasInfoOfVideos:(NSArray *)videos{
-    [self.videosCollectionView setContent:videos];
-    self.videosArray = videos;
-    //[self.channelsCollectionView setContent:self.channelArray];
+-(void)channelHasInfoOfVideos:(JPChannel *)channel{
+#warning this is shit
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        [self.channelArray addObject:channel];
+        [self.channelsCollectionView setContent:self.channelArray];
+        
+        self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
+        [self.videosCollectionView setContent:channel.videos];
+
+
+    for (int i = 0; i < self.videosArray.count; i++) {
+        
+        NSCollectionViewItem *item = [self.videosCollectionView itemAtIndex:i];
+        
+        NSArray *views = item.view.subviews;
+        
+        for (NSView *view in views) {
+            
+            if ([view.identifier  isEqual: @"but"] && ((JPVideo*)[self.videosArray objectAtIndex:i]).donwloaded) {
+                [((NSButton *)view)setEnabled:NO];
+            }
+            
+        }
+    }
+    });
 }
 
 @end

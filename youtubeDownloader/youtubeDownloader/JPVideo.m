@@ -21,6 +21,7 @@
         _min = 0;
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
+        _donwloaded = false;
         
         _dateReleased = [JPVideo dateFromString:self.published];
         [self calcDurationInMinutes];

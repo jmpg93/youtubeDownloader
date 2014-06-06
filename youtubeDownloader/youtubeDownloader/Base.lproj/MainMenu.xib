@@ -711,10 +711,10 @@
                             <rect key="frame" x="1" y="1" width="180" height="519"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView id="y5C-bG-xMG">
+                                <collectionView maxNumberOfRows="1" id="y5C-bG-xMG">
                                     <rect key="frame" x="0.0" y="0.0" width="180" height="519"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="primaryBackgroundColor" red="0.89411771299999998" green="0.89411771299999998" blue="0.89411771299999998" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
                                         <binding destination="ZPF-Ku-rWK" name="content" keyPath="arrangedObjects" id="Tie-5b-TbJ"/>
                                         <outlet property="itemPrototype" destination="vUf-6B-sO5" id="x4A-vS-Ioc"/>
@@ -787,13 +787,18 @@
                     <rect key="frame" x="214" y="20" width="115" height="13"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <levelIndicatorCell key="cell" alignment="left" doubleValue="3" maxValue="5" warningValue="2" criticalValue="2" levelIndicatorStyle="rating" id="Pzf-OB-ZXe"/>
+                    <connections>
+                        <binding destination="N8v-ca-HR0" name="maxValue" keyPath="representedObject.max" id="150-Id-VAz"/>
+                        <binding destination="N8v-ca-HR0" name="minValue" keyPath="representedObject.min" previousBinding="150-Id-VAz" id="15A-Ih-te4"/>
+                        <binding destination="N8v-ca-HR0" name="value" keyPath="representedObject.rating" previousBinding="15A-Ih-te4" id="Bjh-X9-qLO"/>
+                    </connections>
                 </levelIndicator>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="M8i-JL-Nc3">
                     <rect key="frame" x="7" y="9" width="102" height="64"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" imageFrameStyle="grayBezel" id="Apg-JD-zSm"/>
                 </imageView>
-                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCx-Qo-kl7">
+                <button identifier="but" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vCx-Qo-kl7">
                     <rect key="frame" x="359" y="9" width="103" height="32"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                     <buttonCell key="cell" type="push" title="Donwload" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hok-LU-5pP">
@@ -818,19 +823,42 @@
             </connections>
         </collectionViewItem>
         <view id="CtM-4J-y93">
-            <rect key="frame" x="0.0" y="0.0" width="112" height="41"/>
+            <rect key="frame" x="0.0" y="0.0" width="179" height="46"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tia-1I-xGe">
-                    <rect key="frame" x="12" y="11" width="13" height="17"/>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="3W1-jK-dOH">
+                    <rect key="frame" x="0.0" y="0.0" width="179" height="46"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="2" id="KeG-2O-YPd">
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rrP-z7-qFT">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tia-1I-xGe">
+                    <rect key="frame" x="25" y="16" width="129" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2" usesSingleLineMode="YES" id="KeG-2O-YPd">
                         <font key="font" metaFont="system"/>
                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <allowedInputSourceLocales>
+                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                        </allowedInputSourceLocales>
                     </textFieldCell>
+                    <connections>
+                        <binding destination="vUf-6B-sO5" name="value" keyPath="representedObject.channelName" id="Vo9-dB-eAU"/>
+                    </connections>
                 </textField>
             </subviews>
+            <constraints>
+                <constraint firstItem="3W1-jK-dOH" firstAttribute="leading" secondItem="CtM-4J-y93" secondAttribute="leading" id="Ex8-6U-k0R"/>
+                <constraint firstItem="tia-1I-xGe" firstAttribute="centerX" secondItem="CtM-4J-y93" secondAttribute="centerX" id="JyI-HT-jwZ"/>
+                <constraint firstItem="tia-1I-xGe" firstAttribute="leading" secondItem="CtM-4J-y93" secondAttribute="leading" constant="27" id="P9i-v0-jjP"/>
+                <constraint firstItem="tia-1I-xGe" firstAttribute="top" secondItem="CtM-4J-y93" secondAttribute="top" constant="13" id="WlJ-5A-Uar"/>
+                <constraint firstAttribute="bottom" secondItem="3W1-jK-dOH" secondAttribute="bottom" id="ZrN-Kc-wwo"/>
+                <constraint firstItem="3W1-jK-dOH" firstAttribute="top" secondItem="CtM-4J-y93" secondAttribute="top" id="bFe-kQ-4Gh"/>
+                <constraint firstItem="3W1-jK-dOH" firstAttribute="centerX" secondItem="tia-1I-xGe" secondAttribute="centerX" id="lSI-Xf-JPL"/>
+            </constraints>
         </view>
         <arrayController id="ZPF-Ku-rWK" userLabel="CArray Controller">
             <connections>

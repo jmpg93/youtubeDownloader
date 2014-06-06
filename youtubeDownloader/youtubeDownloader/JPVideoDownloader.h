@@ -13,4 +13,6 @@
 
 @interface JPVideoDownloader : NSObject
 -(void)downloadVideo:(JPVideo *)video;
+-(void)forceDownloadVideo:(JPVideo *)video;
+
 @end
