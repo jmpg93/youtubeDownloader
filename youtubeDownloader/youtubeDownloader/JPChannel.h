@@ -10,7 +10,8 @@
 #import "JPVideoScrapper.h"
 #import "JPVideoDownloader.h"
 
-#define FeedURL @"http://gdata.youtube.com/feeds/api/users/electropose1/uploads"
+#define FeedURLStart @"http://gdata.youtube.com/feeds/api/users/"
+#define FeedURLEnd @"/uploads"
 
 @protocol VideosInfo;
 

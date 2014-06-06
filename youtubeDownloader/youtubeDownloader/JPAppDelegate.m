@@ -10,17 +10,19 @@
 #import "JPVideoDownloader.h"
 #import "JPChannel.h"
 #import "JPVideo.h"
-#import <gtm-oauth2/GTMOAuth2WindowController.h>
+#import <gtm-oauth2/GTMOAuth2SignIn.h>
 
 
 @interface JPAppDelegate()
     @property (nonatomic, strong) JPVideoDownloader *donwloader;
+    @property (nonatomic, strong) GTMOAuth2Authentication *auth;
 @end
 
 @implementation JPAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    self.auth = [[GTMOAuth2Authentication alloc]init];
     self.channelArray = [[NSMutableArray alloc]init];
     self.videosArray = [[NSMutableArray alloc]init];
     _donwloader = [[JPVideoDownloader alloc]init];
@@ -35,6 +37,13 @@
     [channel refreshWithTimeInterval:60*60];
     [channel loadData];
     
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(10 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        JPChannel *channel2 = [[JPChannel alloc]init];
+        [channel2 setDelegate:self];
+        channel.channelName = @"majesticcasual";
+        [channel loadData];
+    });
     
     
 }
@@ -63,7 +72,7 @@
         
         self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
         [self.videosCollectionView setContent:channel.videos];
-
+        [self.videosCollectionView setNeedsDisplay:YES];
 
     for (int i = 0; i < self.videosArray.count; i++) {
         

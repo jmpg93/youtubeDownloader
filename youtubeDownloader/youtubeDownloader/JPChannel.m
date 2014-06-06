@@ -28,7 +28,10 @@
 
 -(void)loadData{
     _scrapper.delegate = self;
-    [_scrapper scrapWithURL:FeedURL];
+    NSMutableString *URL = [NSMutableString stringWithString:FeedURLStart];
+    [URL appendString:self.channelName];
+    [URL appendString:FeedURLEnd];
+    [_scrapper scrapWithURL:URL];
 }
 
 -(void)videoScrappingFinishedWithVideos:(NSArray *)videos{
