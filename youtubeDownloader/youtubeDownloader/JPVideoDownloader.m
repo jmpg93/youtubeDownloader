@@ -38,7 +38,7 @@
     
     NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
     
-    video.donwloaded = [[NSFileManager defaultManager] fileExistsAtPath: filePath];
+    video.donwloaded = ![[NSFileManager defaultManager] fileExistsAtPath: filePath];
     
     if(!video.donwloaded && [video isNew]){
         [manager GET:URL parameters:NULL

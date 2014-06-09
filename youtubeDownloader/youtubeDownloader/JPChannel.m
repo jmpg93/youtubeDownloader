@@ -8,6 +8,7 @@
 
 #import "JPChannel.h"
 #import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface JPChannel ()
 @property (nonatomic, strong) JPVideoScrapper *scrapper;
@@ -21,8 +22,13 @@
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
         _donwloader = [[JPVideoDownloader alloc]init];
-        _channelName =  @"electropose1";
+        _channelName =  @"";
     }
+    return self;
+}
+-(id)initWithName:(NSString *)name{
+    self = [self init];
+    _channelName = name;
     return self;
 }
 
@@ -59,6 +65,7 @@
 
 -(void)checkID3{
     //
+
     NSURL *url = [NSURL URLWithString:@"/Users/jmpg93/Documents/Bob.mp3"];
     AudioFileID fileID = nil;
     OSStatus error = noErr;
@@ -69,22 +76,7 @@
         NSLog(@"AudioFileOpenURL failed");
     }
     
-    UInt32 id3DataSize  = 0;
-    char *rawID3Tag    = NULL;
     
-    error = AudioFileGetPropertyInfo(fileID, kAudioFilePropertyID3Tag, &id3DataSize, NULL);
-    if (error != noErr)
-        NSLog(@"AudioFileGetPropertyInfo failed for ID3 tag");
-    
-    rawID3Tag = (char *)malloc(id3DataSize);
-    if (rawID3Tag == NULL)
-        NSLog(@"could not allocate %d bytes of memory for ID3 tag", (unsigned int)id3DataSize);
-    
-    error = AudioFileGetProperty(fileID, kAudioFilePropertyID3Tag, &id3DataSize, rawID3Tag);
-    if( error != noErr )
-        NSLog(@"AudioFileGetPropertyID3Tag failed");
-    
-   
     UInt32 piDataSize   = sizeof(piDict);
     AudioFileGetProperty( fileID, kAudioFilePropertyInfoDictionary, &piDataSize, &piDict );
     NSLog(@"%@", (__bridge NSDictionary *)piDict);
@@ -94,7 +86,6 @@
     [dict setObject:@"NEW ALBUM NAME2222" forKey:@"album"];
     piDict = (__bridge CFDictionaryRef)dict;
     NSLog(@"%@", (__bridge NSDictionary *)piDict);
-    
     
     piDataSize = sizeof(piDict);
     OSStatus status = AudioFileSetProperty(fileID, kAudioFilePropertyInfoDictionary, piDataSize, &piDict);
@@ -106,5 +97,38 @@
     AudioFileClose(fileID);
     
    }
+
+- (void)loadArtworksForFileAtPath:(NSString *)path completion:(void (^)(NSArray *))completion
+{
+    NSURL *u =  [NSURL URLWithString:@"/Users/jmpg93/Documents/Bob.mp3"];
+    AVURLAsset *a = [AVURLAsset URLAssetWithURL:u options:nil];
+    NSArray *k = [NSArray arrayWithObjects:@"commonMetadata", nil];
+    
+    [a loadValuesAsynchronouslyForKeys:k completionHandler: ^{
+        NSArray *artworks = [AVMetadataItem metadataItemsFromArray:a.commonMetadata
+                                                           withKey:AVMetadataFormatID3Metadata
+                                                          keySpace:AVMetadataKeySpaceCommon];
+        
+        NSMutableArray *artworkImages = [NSMutableArray array];
+        for (AVMetadataItem *i in artworks)
+        {
+            NSString *keySpace = i.keySpace;
+            CIImage *im = nil;
+            
+            if ([keySpace isEqualToString:AVMetadataKeySpaceID3])
+            {
+                NSDictionary *d = [i.value copyWithZone:nil];
+                im = [CIImage imageWithData:[d objectForKey:@"data"]];
+            }
+            else if ([keySpace isEqualToString:AVMetadataKeySpaceiTunes])
+                im = [CIImage imageWithData:[i.value copyWithZone:nil]];
+            
+            if (im)
+                [artworkImages addObject:im];
+        }
+        
+        completion(artworkImages);
+    }];
+}
 
 @end

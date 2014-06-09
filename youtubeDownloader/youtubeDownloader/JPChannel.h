@@ -23,6 +23,7 @@
 @property (nonatomic, strong) NSString *feedURLVideos;
 @property (nonatomic, strong) NSString *channelName;
 
+-(id)initWithName:(NSString *)name;
 -(void)loadData;
 -(void)downLoadLatestVideo;
 -(void)refreshWithTimeInterval:(int)time;

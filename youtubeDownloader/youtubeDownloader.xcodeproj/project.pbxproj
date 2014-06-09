@@ -23,10 +23,10 @@
 		6C19F2F1193A2AA90042096D /* JPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F0193A2AA90042096D /* JPVideo.m */; };
 		6C19F2F4193A2D5A0042096D /* JPChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F3193A2D5A0042096D /* JPChannel.m */; };
 		6C19F2F7193A45BE0042096D /* JPVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */; };
-		6C19F438193CBADD0042096D /* libid3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C19F437193CBADD0042096D /* libid3.a */; };
 		6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */; };
 		6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */; };
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
+		6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EC19428A5D006F35F1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +72,9 @@
 		6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.4.0.dylib; path = usr/lib/libiconv.2.4.0.dylib; sourceTree = SDKROOT; };
 		6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
+		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
+		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
 		9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -80,10 +83,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */,
 				6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */,
 				6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */,
 				6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */,
-				6C19F438193CBADD0042096D /* libid3.a in Frameworks */,
 				6C19F2B1193A13F30042096D /* Cocoa.framework in Frameworks */,
 				200384F95442492698C6C74A /* libPods.a in Frameworks */,
 			);
@@ -124,6 +127,9 @@
 		6C19F2AF193A13F30042096D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CC427F019428F32006F35F1 /* libid3.a */,
+				6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */,
+				6CC427EC19428A5D006F35F1 /* AVFoundation.framework */,
 				6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */,
 				6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */,
 				6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */,

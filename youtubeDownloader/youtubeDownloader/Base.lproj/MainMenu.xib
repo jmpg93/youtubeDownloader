@@ -671,21 +671,21 @@
         <window title="youtubeDownloader" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="830" height="561"/>
+            <rect key="contentRect" x="335" y="390" width="830" height="572"/>
             <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1178"/>
             <view key="contentView" placeholderIntrinsicWidth="infinite" placeholderIntrinsicHeight="infinite" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="830" height="561"/>
+                <rect key="frame" x="0.0" y="0.0" width="830" height="572"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EVY-2F-4hd">
-                        <rect key="frame" x="210" y="20" width="600" height="521"/>
+                        <rect key="frame" x="210" y="20" width="600" height="532"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="9cX-0H-E5d">
-                            <rect key="frame" x="1" y="1" width="598" height="519"/>
+                            <rect key="frame" x="1" y="1" width="598" height="530"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
                                 <collectionView id="YwP-Wd-Ti9">
-                                    <rect key="frame" x="0.0" y="0.0" width="598" height="519"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="598" height="530"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="primaryBackgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     <connections>
@@ -705,14 +705,14 @@
                         </scroller>
                     </scrollView>
                     <scrollView autohidesScrollers="YES" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vov-dQ-59i">
-                        <rect key="frame" x="20" y="20" width="182" height="521"/>
+                        <rect key="frame" x="20" y="20" width="182" height="532"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                         <clipView key="contentView" id="gv7-ZF-ChU">
-                            <rect key="frame" x="1" y="1" width="180" height="519"/>
+                            <rect key="frame" x="1" y="1" width="180" height="530"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             <subviews>
-                                <collectionView maxNumberOfRows="1" id="y5C-bG-xMG">
-                                    <rect key="frame" x="0.0" y="0.0" width="180" height="519"/>
+                                <collectionView maxNumberOfColumns="1" id="y5C-bG-xMG">
+                                    <rect key="frame" x="0.0" y="0.0" width="180" height="530"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <color key="primaryBackgroundColor" red="0.89411771299999998" green="0.89411771299999998" blue="0.89411771299999998" alpha="1" colorSpace="deviceRGB"/>
                                     <connections>
@@ -807,6 +807,7 @@
                     </buttonCell>
                     <connections>
                         <action selector="donwloadVideo:" target="Voe-Tx-rLC" id="ByJ-k9-H1L"/>
+                        <binding destination="N8v-ca-HR0" name="enabled" keyPath="representedObject.donwloaded" id="185-0B-xvn"/>
                     </connections>
                 </button>
             </subviews>
@@ -819,51 +820,54 @@
         <userDefaultsController representsSharedInstance="YES" id="gf5-0E-5IR"/>
         <collectionViewItem id="vUf-6B-sO5">
             <connections>
-                <outlet property="view" destination="CtM-4J-y93" id="1mG-Mh-G8u"/>
+                <outlet property="view" destination="48I-1R-qfs" id="4Lq-kM-430"/>
             </connections>
         </collectionViewItem>
-        <view id="CtM-4J-y93">
-            <rect key="frame" x="0.0" y="0.0" width="179" height="46"/>
-            <autoresizingMask key="autoresizingMask"/>
-            <subviews>
-                <button translatesAutoresizingMaskIntoConstraints="NO" id="3W1-jK-dOH">
-                    <rect key="frame" x="0.0" y="0.0" width="179" height="46"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rrP-z7-qFT">
-                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                        <font key="font" metaFont="system"/>
-                    </buttonCell>
-                </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="tia-1I-xGe">
-                    <rect key="frame" x="25" y="16" width="129" height="17"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="2" usesSingleLineMode="YES" id="KeG-2O-YPd">
-                        <font key="font" metaFont="system"/>
-                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                        <allowedInputSourceLocales>
-                            <string>NSAllRomanInputSourcesLocaleIdentifier</string>
-                        </allowedInputSourceLocales>
-                    </textFieldCell>
-                    <connections>
-                        <binding destination="vUf-6B-sO5" name="value" keyPath="representedObject.channelName" id="Vo9-dB-eAU"/>
-                    </connections>
-                </textField>
-            </subviews>
-            <constraints>
-                <constraint firstItem="3W1-jK-dOH" firstAttribute="leading" secondItem="CtM-4J-y93" secondAttribute="leading" id="Ex8-6U-k0R"/>
-                <constraint firstItem="tia-1I-xGe" firstAttribute="centerX" secondItem="CtM-4J-y93" secondAttribute="centerX" id="JyI-HT-jwZ"/>
-                <constraint firstItem="tia-1I-xGe" firstAttribute="leading" secondItem="CtM-4J-y93" secondAttribute="leading" constant="27" id="P9i-v0-jjP"/>
-                <constraint firstItem="tia-1I-xGe" firstAttribute="top" secondItem="CtM-4J-y93" secondAttribute="top" constant="13" id="WlJ-5A-Uar"/>
-                <constraint firstAttribute="bottom" secondItem="3W1-jK-dOH" secondAttribute="bottom" id="ZrN-Kc-wwo"/>
-                <constraint firstItem="3W1-jK-dOH" firstAttribute="top" secondItem="CtM-4J-y93" secondAttribute="top" id="bFe-kQ-4Gh"/>
-                <constraint firstItem="3W1-jK-dOH" firstAttribute="centerX" secondItem="tia-1I-xGe" secondAttribute="centerX" id="lSI-Xf-JPL"/>
-            </constraints>
-        </view>
         <arrayController id="ZPF-Ku-rWK" userLabel="CArray Controller">
             <connections>
                 <binding destination="Voe-Tx-rLC" name="contentArray" keyPath="self.channelArray" id="ei1-05-pS6"/>
             </connections>
         </arrayController>
+        <view id="48I-1R-qfs">
+            <rect key="frame" x="0.0" y="0.0" width="178" height="48"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button translatesAutoresizingMaskIntoConstraints="NO" id="nOO-Q0-tF6">
+                    <rect key="frame" x="0.0" y="0.0" width="178" height="48"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <buttonCell key="cell" type="square" bezelStyle="shadowlessSquare" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4qx-bO-6gY">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="changeChannel:" target="Voe-Tx-rLC" id="kaL-QR-mj1"/>
+                    </connections>
+                </button>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r99-rE-djn">
+                    <rect key="frame" x="18" y="16" width="142" height="17"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Name" id="oMv-Kj-RVW">
+                        <font key="font" metaFont="system"/>
+                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                        <connections>
+                            <binding destination="N8v-ca-HR0" name="value" keyPath="self" id="cz2-WB-usy"/>
+                        </connections>
+                    </textFieldCell>
+                    <connections>
+                        <binding destination="vUf-6B-sO5" name="value" keyPath="representedObject.channelName" id="7jA-b9-Cnf"/>
+                    </connections>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="r99-rE-djn" secondAttribute="trailing" constant="20" symbolic="YES" id="AUb-nt-B5y"/>
+                <constraint firstItem="nOO-Q0-tF6" firstAttribute="leading" secondItem="48I-1R-qfs" secondAttribute="leading" id="Rbb-Ss-1EB"/>
+                <constraint firstItem="r99-rE-djn" firstAttribute="leading" secondItem="48I-1R-qfs" secondAttribute="leading" constant="20" symbolic="YES" id="Y6a-AW-PFf"/>
+                <constraint firstItem="nOO-Q0-tF6" firstAttribute="centerX" secondItem="r99-rE-djn" secondAttribute="centerX" id="gP5-BO-RgJ"/>
+                <constraint firstItem="nOO-Q0-tF6" firstAttribute="top" secondItem="48I-1R-qfs" secondAttribute="top" id="iPP-Xd-gQE"/>
+                <constraint firstItem="nOO-Q0-tF6" firstAttribute="centerY" secondItem="r99-rE-djn" secondAttribute="centerY" id="tBD-3m-hGI"/>
+                <constraint firstItem="r99-rE-djn" firstAttribute="centerY" secondItem="48I-1R-qfs" secondAttribute="centerY" id="yPe-dh-2K5"/>
+            </constraints>
+        </view>
     </objects>
 </document>
