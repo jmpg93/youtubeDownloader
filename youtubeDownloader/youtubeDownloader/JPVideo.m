@@ -57,13 +57,13 @@
 
 -(BOOL)isNew{
     
-    BOOL new = false;
+    BOOL isNew = false;
     NSDate *date = [NSDate date];
     int time = [date timeIntervalSinceDate:self.dateReleased];
     int timeAloowDownload = 2*60*60*24;
     
-    new = (time < timeAloowDownload);
-    return new;
+    isNew = (time < timeAloowDownload);
+    return isNew;
 }
 
 
