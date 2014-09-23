@@ -10,6 +10,8 @@
 	<string>youtubeDownloader</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>51E472BA5D65BF53FAF346141B250DC0CAAE2DE8</key>
+		<string>github.com:jmpg93/youtubeDownloader.git</string>
 		<key>AC6B7594-4E99-47C1-B621-8983E39DF4DA</key>
 		<string>ssh://github.com/jmpg93/youtubeDownloader.git</string>
 	</dict>
@@ -17,17 +19,27 @@
 	<string>youtubeDownloader/youtubeDownloader.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AC6B7594-4E99-47C1-B621-8983E39DF4DA</key>
+		<key>51E472BA5D65BF53FAF346141B250DC0CAAE2DE8</key>
 		<string>../..</string>
+		<key>AC6B7594-4E99-47C1-B621-8983E39DF4DA</key>
+		<string>../../../youtubeDowloader</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/jmpg93/youtubeDownloader.git</string>
+	<string>github.com:jmpg93/youtubeDownloader.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AC6B7594-4E99-47C1-B621-8983E39DF4DA</string>
+	<string>51E472BA5D65BF53FAF346141B250DC0CAAE2DE8</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>51E472BA5D65BF53FAF346141B250DC0CAAE2DE8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>YD</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>

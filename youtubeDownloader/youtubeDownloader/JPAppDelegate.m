@@ -25,6 +25,7 @@
 {
     
     int minutesToRefresh = 10;
+    minutesToRefresh = minutesToRefresh*60;
     
     self.auth = [[GTMOAuth2Authentication alloc]init];
     self.channelArray = [[NSMutableArray alloc]init];
@@ -40,10 +41,27 @@
     [channel loadData];
     [self.channelArray addObject:channel];
     
-    JPChannel *channel2 = [[JPChannel alloc]initWithName:@"majesticcasual"];
-    [channel2 setDelegate:self];
-    [channel2 loadData];
-    [self.channelArray addObject:channel2];
+    JPChannel *majesticcasual = [[JPChannel alloc]initWithName:@"majesticcasual"];
+    [majesticcasual setDelegate:self];
+    [majesticcasual loadData];
+    [self.channelArray addObject:majesticcasual];
+    
+    JPChannel *MrSuicideSheep = [[JPChannel alloc]initWithName:@"MrSuicideSheep"];
+    [MrSuicideSheep setDelegate:self];
+    [MrSuicideSheep loadData];
+    [self.channelArray addObject:MrSuicideSheep];
+    
+    JPChannel *PandoraMuslc = [[JPChannel alloc]initWithName:@"PandoraMuslc"];
+    [PandoraMuslc setDelegate:self];
+    [PandoraMuslc loadData];
+    [self.channelArray addObject:PandoraMuslc];
+    
+    
+    JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
+    [soundisstyle setDelegate:self];
+    [soundisstyle loadData];
+    [self.channelArray addObject:soundisstyle];
+    
     
     for (JPChannel *chan in self.channelArray) {
         [chan refreshWithTimeInterval:minutesToRefresh];

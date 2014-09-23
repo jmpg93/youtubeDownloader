@@ -18,6 +18,8 @@
 @implementation JPChannel
 
 -(id)init{
+    //TagDemo *tag = [[TagDemo alloc]init];
+    //[tag demo];
     self = [super init];
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
@@ -66,35 +68,35 @@
 -(void)checkID3{
     //
 
-    NSURL *url = [NSURL URLWithString:@"/Users/jmpg93/Documents/Bob.mp3"];
-    AudioFileID fileID = nil;
-    OSStatus error = noErr;
-    CFDictionaryRef piDict = nil;
-    
-    error = AudioFileOpenURL((__bridge CFURLRef)url,kAudioFileReadWritePermission, kAudioFileMP3Type, &fileID);
-    if (error != noErr) {
-        NSLog(@"AudioFileOpenURL failed");
-    }
-    
-    
-    UInt32 piDataSize   = sizeof(piDict);
-    AudioFileGetProperty( fileID, kAudioFilePropertyInfoDictionary, &piDataSize, &piDict );
-    NSLog(@"%@", (__bridge NSDictionary *)piDict);
-    
-    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
-    dict = (__bridge NSMutableDictionary*)piDict;
-    [dict setObject:@"NEW ALBUM NAME2222" forKey:@"album"];
-    piDict = (__bridge CFDictionaryRef)dict;
-    NSLog(@"%@", (__bridge NSDictionary *)piDict);
-    
-    piDataSize = sizeof(piDict);
-    OSStatus status = AudioFileSetProperty(fileID, kAudioFilePropertyInfoDictionary, piDataSize, &piDict);
-    NSLog(@"%d", (int)status);
-    
-    AudioFileGetProperty( fileID, kAudioFilePropertyInfoDictionary, &piDataSize, &piDict );
-    NSLog(@"%@", (__bridge NSDictionary *)piDict);
-    
-    AudioFileClose(fileID);
+//    NSURL *url = [NSURL URLWithString:@"/Users/jmpg93/Documents/Bob.mp3"];
+//    AudioFileID fileID = nil;
+//    OSStatus error = noErr;
+//    CFDictionaryRef piDict = nil;
+//    
+//    error = AudioFileOpenURL((__bridge CFURLRef)url,kAudioFileReadWritePermission, kAudioFileMP3Type, &fileID);
+//    if (error != noErr) {
+//        NSLog(@"AudioFileOpenURL failed");
+//    }
+//    
+//    
+//    UInt32 piDataSize   = sizeof(piDict);
+//    AudioFileGetProperty( fileID, kAudioFilePropertyInfoDictionary, &piDataSize, &piDict );
+//    NSLog(@"%@", (__bridge NSDictionary *)piDict);
+//    
+//    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+//    dict = (__bridge NSMutableDictionary*)piDict;
+//    [dict setObject:@"NEW ALBUM NAME2222" forKey:@"album"];
+//    piDict = (__bridge CFDictionaryRef)dict;
+//    NSLog(@"%@", (__bridge NSDictionary *)piDict);
+//    
+//    piDataSize = sizeof(piDict);
+//    OSStatus status = AudioFileSetProperty(fileID, kAudioFilePropertyInfoDictionary, piDataSize, &piDict);
+//    NSLog(@"%d", (int)status);
+//    
+//    AudioFileGetProperty( fileID, kAudioFilePropertyInfoDictionary, &piDataSize, &piDict );
+//    NSLog(@"%@", (__bridge NSDictionary *)piDict);
+//    
+//    AudioFileClose(fileID);
     
    }
 

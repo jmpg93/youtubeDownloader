@@ -23,6 +23,9 @@
 		6C19F2F1193A2AA90042096D /* JPVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F0193A2AA90042096D /* JPVideo.m */; };
 		6C19F2F4193A2D5A0042096D /* JPChannel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F3193A2D5A0042096D /* JPChannel.m */; };
 		6C19F2F7193A45BE0042096D /* JPVideoDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */; };
+		6C43E34F19D0E0310037112C /* libid3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427F019428F32006F35F1 /* libid3.a */; };
+		6C43E35019D0E0310037112C /* libid3-3.8.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */; };
+		6C7F2D4F19D1C8AE00750E41 /* TagDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */; };
 		6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */; };
 		6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */; };
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
@@ -69,12 +72,15 @@
 		6C19F2F5193A45BE0042096D /* JPVideoDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoDownloader.h; sourceTree = "<group>"; };
 		6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoDownloader.m; sourceTree = "<group>"; };
 		6C19F437193CBADD0042096D /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = "../../../Library/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos/libid3.a"; sourceTree = "<group>"; };
+		6C7F2D4D19D1C8AE00750E41 /* TagDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDemo.h; sourceTree = "<group>"; };
+		6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TagDemo.mm; sourceTree = "<group>"; };
 		6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.4.0.dylib; path = usr/lib/libiconv.2.4.0.dylib; sourceTree = SDKROOT; };
 		6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
 		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
+		6CD997B619C25119005BB9D5 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = ../../../Desktop/TagLib.framework; sourceTree = "<group>"; };
 		9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +89,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C43E34F19D0E0310037112C /* libid3.a in Frameworks */,
+				6C43E35019D0E0310037112C /* libid3-3.8.3.0.0.dylib in Frameworks */,
 				6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */,
 				6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */,
 				6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */,
@@ -127,6 +135,7 @@
 		6C19F2AF193A13F30042096D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6CD997B619C25119005BB9D5 /* TagLib.framework */,
 				6CC427F019428F32006F35F1 /* libid3.a */,
 				6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */,
 				6CC427EC19428A5D006F35F1 /* AVFoundation.framework */,
@@ -155,6 +164,8 @@
 		6C19F2B6193A13F30042096D /* youtubeDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				6C7F2D4D19D1C8AE00750E41 /* TagDemo.h */,
+				6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */,
 				6C19F2F2193A2D5A0042096D /* JPChannel.h */,
 				6C19F2F3193A2D5A0042096D /* JPChannel.m */,
 				6C19F2EF193A2AA90042096D /* JPVideo.h */,
@@ -338,6 +349,7 @@
 			files = (
 				6C19F2C4193A13F30042096D /* JPAppDelegate.m in Sources */,
 				6C19F2F1193A2AA90042096D /* JPVideo.m in Sources */,
+				6C7F2D4F19D1C8AE00750E41 /* TagDemo.mm in Sources */,
 				6C19F2F7193A45BE0042096D /* JPVideoDownloader.m in Sources */,
 				6C19F2BD193A13F30042096D /* main.m in Sources */,
 				6C19F2ED193A239A0042096D /* JPVideoScrapper.m in Sources */,
@@ -402,7 +414,7 @@
 		6C19F2DC193A13F30042096D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -416,7 +428,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -431,16 +443,22 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Debug;
 		};
 		6C19F2DD193A13F30042096D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -456,7 +474,7 @@
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = gnu89;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -464,8 +482,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include,
+				);
 				MACOSX_DEPLOYMENT_TARGET = 10.9;
 				SDKROOT = macosx;
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 			};
 			name = Release;
 		};
@@ -475,14 +499,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				INFOPLIST_FILE = "youtubeDownloader/youtubeDownloader-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos",
+					/usr/local/include,
+					/usr/local/lib,
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -493,10 +521,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				INFOPLIST_FILE = "youtubeDownloader/youtubeDownloader-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				USER_HEADER_SEARCH_PATHS = /usr/local/include;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -510,6 +540,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -532,6 +563,7 @@
 					"$(DEVELOPER_FRAMEWORKS_DIR)",
 					"$(inherited)",
 				);
+				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "youtubeDownloader/youtubeDownloader-Prefix.pch";
 				INFOPLIST_FILE = "youtubeDownloaderTests/youtubeDownloaderTests-Info.plist";

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "JPVideoScrapper.h"
 #import "JPVideoDownloader.h"
+#import "TagDemo.h"
 
 #define FeedURLStart @"http://gdata.youtube.com/feeds/api/users/"
 #define FeedURLEnd @"/uploads"
