@@ -15,7 +15,6 @@
 		6C19F2C4193A13F30042096D /* JPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2C3193A13F30042096D /* JPAppDelegate.m */; };
 		6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2C5193A13F30042096D /* MainMenu.xib */; };
 		6C19F2C9193A13F30042096D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2C8193A13F30042096D /* Images.xcassets */; };
-		6C19F2D0193A13F30042096D /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C19F2CF193A13F30042096D /* XCTest.framework */; };
 		6C19F2D1193A13F30042096D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C19F2B0193A13F30042096D /* Cocoa.framework */; };
 		6C19F2D9193A13F30042096D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2D7193A13F30042096D /* InfoPlist.strings */; };
 		6C19F2DB193A13F30042096D /* youtubeDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2DA193A13F30042096D /* youtubeDownloaderTests.m */; };
@@ -26,6 +25,7 @@
 		6C43E34F19D0E0310037112C /* libid3.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427F019428F32006F35F1 /* libid3.a */; };
 		6C43E35019D0E0310037112C /* libid3-3.8.3.0.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */; };
 		6C7F2D4F19D1C8AE00750E41 /* TagDemo.mm in Sources */ = {isa = PBXBuildFile; fileRef = 6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */; };
+		6C7F2D5119D1DB2E00750E41 /* amazing-grace-10s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6C7F2D5019D1DB2E00750E41 /* amazing-grace-10s.mp3 */; };
 		6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */; };
 		6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */; };
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
@@ -59,7 +59,6 @@
 		6C19F2C6193A13F30042096D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6C19F2C8193A13F30042096D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6C19F2CE193A13F30042096D /* youtubeDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = youtubeDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		6C19F2CF193A13F30042096D /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		6C19F2D6193A13F30042096D /* youtubeDownloaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "youtubeDownloaderTests-Info.plist"; sourceTree = "<group>"; };
 		6C19F2D8193A13F30042096D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6C19F2DA193A13F30042096D /* youtubeDownloaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = youtubeDownloaderTests.m; sourceTree = "<group>"; };
@@ -71,16 +70,15 @@
 		6C19F2F3193A2D5A0042096D /* JPChannel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPChannel.m; sourceTree = "<group>"; };
 		6C19F2F5193A45BE0042096D /* JPVideoDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JPVideoDownloader.h; sourceTree = "<group>"; };
 		6C19F2F6193A45BE0042096D /* JPVideoDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JPVideoDownloader.m; sourceTree = "<group>"; };
-		6C19F437193CBADD0042096D /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = "../../../Library/Developer/Xcode/DerivedData/libid3-fygkbtmkthlobdaednwyyekuczmh/Build/Products/Debug-iphoneos/libid3.a"; sourceTree = "<group>"; };
 		6C7F2D4D19D1C8AE00750E41 /* TagDemo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TagDemo.h; sourceTree = "<group>"; };
 		6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TagDemo.mm; sourceTree = "<group>"; };
+		6C7F2D5019D1DB2E00750E41 /* amazing-grace-10s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "amazing-grace-10s.mp3"; sourceTree = "<group>"; };
 		6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.4.0.dylib; path = usr/lib/libiconv.2.4.0.dylib; sourceTree = SDKROOT; };
 		6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
 		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
-		6CD997B619C25119005BB9D5 /* TagLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TagLib.framework; path = ../../../Desktop/TagLib.framework; sourceTree = "<group>"; };
 		9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C19F2D1193A13F30042096D /* Cocoa.framework in Frameworks */,
-				6C19F2D0193A13F30042096D /* XCTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,6 +112,7 @@
 		6C19F2A4193A13F30042096D = {
 			isa = PBXGroup;
 			children = (
+				6C7F2D5019D1DB2E00750E41 /* amazing-grace-10s.mp3 */,
 				6C19F2B6193A13F30042096D /* youtubeDownloader */,
 				6C19F2D4193A13F30042096D /* youtubeDownloaderTests */,
 				6C19F2AF193A13F30042096D /* Frameworks */,
@@ -135,16 +133,13 @@
 		6C19F2AF193A13F30042096D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6CD997B619C25119005BB9D5 /* TagLib.framework */,
 				6CC427F019428F32006F35F1 /* libid3.a */,
 				6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */,
 				6CC427EC19428A5D006F35F1 /* AVFoundation.framework */,
 				6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */,
 				6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */,
 				6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */,
-				6C19F437193CBADD0042096D /* libid3.a */,
 				6C19F2B0193A13F30042096D /* Cocoa.framework */,
-				6C19F2CF193A13F30042096D /* XCTest.framework */,
 				6C19F2B2193A13F30042096D /* Other Frameworks */,
 				1F44B4217E8D4645B65DB4F4 /* libPods.a */,
 			);
@@ -294,6 +289,7 @@
 			files = (
 				6C19F2BB193A13F30042096D /* InfoPlist.strings in Resources */,
 				6C19F2C9193A13F30042096D /* Images.xcassets in Resources */,
+				6C7F2D5119D1DB2E00750E41 /* amazing-grace-10s.mp3 in Resources */,
 				6C19F2C1193A13F30042096D /* Credits.rtf in Resources */,
 				6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */,
 			);

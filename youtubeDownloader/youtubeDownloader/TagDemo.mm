@@ -12,11 +12,12 @@
 @implementation TagDemo
 
 - (void)demo {
-    //NSString *path = [[NSBundle mainBundle] pathForResource:@"amazing-grace-10s" ofType:@"mp3"];
-    NSString *path= @"/Users/jmpg93/Desktop/libid3-ios-master/Example/amazing-grace-10s.mp3";
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"amazing-grace-10s" ofType:@"mp3"];
     
-    NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-    NSString *docPath = [[docPaths objectAtIndex:0] stringByAppendingPathComponent:@"amazing-grace-10s.mp3"];
+    
+    //NSArray *docPaths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    //NSString *docPath = [[docPaths objectAtIndex:0] stringByAppendingPathComponent:@"amazing-grace-10s.mp3"];
+     NSString *docPath = @"/Users/jmpg93/Desktop/amazing-grace-10sC.mp3";
 
     [[NSFileManager defaultManager] copyItemAtPath:path toPath:docPath error:nil];
     
@@ -40,14 +41,14 @@
     frame.GetField(ID3FN_TEXTENC)->Set(ID3TE_UNICODE);
     NSString *newTitle = @"賛美歌「アメイジング グレイス」 - Amazing Grace";
     frame.GetField(ID3FN_TEXT)->Set((unicode_t *) [newTitle cStringUsingEncoding:NSUTF16StringEncoding]);
+    
 
     tag.AddFrame(frame);
 
     tag.SetPadding(false);
     tag.SetUnsync(false);
     tag.Update(ID3TT_ID3V2);
-
-    NSLog(@"The title after is %@", newTitle);
+    
 }
 
 @end

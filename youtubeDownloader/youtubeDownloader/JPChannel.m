@@ -1,3 +1,4 @@
+
 //
 //  JPChannel.m
 //  youtubeDownloader
@@ -18,8 +19,12 @@
 @implementation JPChannel
 
 -(id)init{
-    //TagDemo *tag = [[TagDemo alloc]init];
-    //[tag demo];
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        TagDemo *tag = [[TagDemo alloc]init];
+        [tag demo];
+    });
+
     self = [super init];
     if (self) {
         _scrapper = [[JPVideoScrapper alloc]init];
