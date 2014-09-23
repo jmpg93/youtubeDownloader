@@ -7,6 +7,7 @@
 //
 
 #import "JPVideo.h"
+#import "JPChannel.h"
 
 @implementation JPVideo
 
@@ -14,6 +15,16 @@
     self = [super init];
     if (self) {
         _title = [[dic objectForKey:@"title"]objectForKey:@"text"];
+        _albumOfSong = [[[dic objectForKey:@"author"]objectForKey:@"name"]objectForKey:@"text"];
+        NSString *aux = [NSString stringWithString:_title];
+        NSRange range = [_title rangeOfString:@" - "];
+        if (range.location < 20) {
+            _artist = [_title substringToIndex:range.location];
+            _title = [aux substringFromIndex:range.location + 3];
+        }else{
+            _artist = _albumOfSong;
+        }
+        
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
@@ -22,6 +33,7 @@
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
         _donwloaded = false;
+        
         
         _dateReleased = [JPVideo dateFromString:self.published];
         [self calcDurationInMinutes];
@@ -64,6 +76,10 @@
     
     isNew = (time < timeAloowDownload);
     return isNew;
+}
+
+-(void)addFilePath:(NSString *)path{
+    self.filePath = path;
 }
 
 

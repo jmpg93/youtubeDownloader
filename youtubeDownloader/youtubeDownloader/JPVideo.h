@@ -11,6 +11,7 @@
 @interface JPVideo : NSObject
 
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *duration;
 @property (nonatomic, strong) NSURL *thumbnailImage;
 @property (nonatomic, strong) NSString *URL;
@@ -18,6 +19,7 @@
 @property (nonatomic, assign) float max;
 @property (nonatomic, assign) float min;
 @property (nonatomic, strong) NSString *description;
+@property (nonatomic, strong) NSString *albumOfSong;
 @property (nonatomic, strong) NSString *published;
 @property (nonatomic, strong) NSDate *dateReleased;
 @property (nonatomic, strong) NSString *filePath;
@@ -26,4 +28,5 @@
 -(id)initWithDicctionary:(NSDictionary *)dic;
 +(NSDate*) dateFromString:(NSString*)dateString;
 -(BOOL)isNew;
+-(void)addFilePath:(NSString *)path;
 @end

@@ -10,6 +10,7 @@
 #import "JPVideoDownloader.h"
 #import "JPChannel.h"
 #import "JPVideo.h"
+#import "TagDemo.h"
 
 #import <gtm-oauth2/GTMOAuth2SignIn.h>
 
@@ -23,6 +24,7 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    
     
     int minutesToRefresh = 10;
     minutesToRefresh = minutesToRefresh*60;

@@ -11,5 +11,6 @@
 @interface TagDemo : NSObject
 
 - (void)demo;
+- (void)changeTagsOfVideo:(JPVideo *)video;
 
 @end

@@ -9,6 +9,8 @@
 #import <AudioToolbox/AudioToolbox.h>
 #import "JPVideoDownloader.h"
 #import "JPVideo.h"
+#import "TagDemo.h"
+
 
 
 @implementation JPVideoDownloader : NSObject
@@ -39,15 +41,19 @@
     [name appendString:@".mp3"];
     
     NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
-    
+    //comprobar esto
+    video.filePath = filePath;
     video.donwloaded = ![[NSFileManager defaultManager] fileExistsAtPath: filePath];
     
     if(!video.donwloaded && [video isNew]){
         [manager GET:URL parameters:NULL
              success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 
+                 //bajamos archivo
                  [responseObject writeToFile:filePath atomically:YES];
-
+                 //editamos tags
+                 TagDemo *tagChanger = [[TagDemo alloc]init];
+                 //[tagChanger changeTagsOfVideo:video];
+                 
              } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                  NSLog(@"%@", error);
              }];
