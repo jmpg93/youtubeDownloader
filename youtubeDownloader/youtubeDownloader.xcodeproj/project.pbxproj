@@ -28,7 +28,6 @@
 		6CA4E1B11942438D008171D0 /* libiconv.2.4.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */; };
 		6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */; };
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
-		6CB2D4E019D1E7A9008124B5 /* amazing-grace-10s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6CB2D4DF19D1E7A9008124B5 /* amazing-grace-10s.mp3 */; };
 		6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EC19428A5D006F35F1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -75,7 +74,6 @@
 		6CA4E1B01942438D008171D0 /* libiconv.2.4.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libiconv.2.4.0.dylib; path = usr/lib/libiconv.2.4.0.dylib; sourceTree = SDKROOT; };
 		6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
-		6CB2D4DF19D1E7A9008124B5 /* amazing-grace-10s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "amazing-grace-10s.mp3"; path = "youtubeDownloader/amazing-grace-10s.mp3"; sourceTree = "<group>"; };
 		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
 		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
@@ -112,7 +110,6 @@
 		6C19F2A4193A13F30042096D = {
 			isa = PBXGroup;
 			children = (
-				6CB2D4DF19D1E7A9008124B5 /* amazing-grace-10s.mp3 */,
 				6C19F2B6193A13F30042096D /* youtubeDownloader */,
 				6C19F2D4193A13F30042096D /* youtubeDownloaderTests */,
 				6C19F2AF193A13F30042096D /* Frameworks */,
@@ -290,7 +287,6 @@
 				6C19F2BB193A13F30042096D /* InfoPlist.strings in Resources */,
 				6C19F2C9193A13F30042096D /* Images.xcassets in Resources */,
 				6C19F2C1193A13F30042096D /* Credits.rtf in Resources */,
-				6CB2D4E019D1E7A9008124B5 /* amazing-grace-10s.mp3 in Resources */,
 				6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
