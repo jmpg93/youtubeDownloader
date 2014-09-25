@@ -7,13 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
+
 @protocol VideoScrapping;
 
 @interface JPVideoScrapper : NSObject
 
 @property (strong) id <VideoScrapping> delegate;
 
-- (void)scrapWithURL:(NSString *)URL;
+- (void)scrapWithURL:(NSString *)URL OfChannel:(id)channel;
 
 @end
 

@@ -16,6 +16,7 @@
 @implementation JPVideoDownloader : NSObject
 {
     AFHTTPRequestOperationManager *manager;
+    TagDemo *tagChanger;
 }
 
 - (id)init
@@ -24,6 +25,7 @@
     if (self) {
         manager = [AFHTTPRequestOperationManager manager];
         AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+        tagChanger = [[TagDemo alloc]init];
         [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"text/html", @"image/jpeg", @"audio/mpeg"]]];
         manager.responseSerializer = serializer;
         
@@ -33,51 +35,39 @@
 -(void)downloadVideo:(JPVideo *)video{
     NSMutableString *URL = [[NSMutableString alloc]initWithString:@"http://youtubeinmp3.com/fetch/?video="];
     [URL appendString:video.URL];
+
+    NSFileManager *fileManager = [NSFileManager defaultManager];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,   NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
+    [manager GET:URL parameters:NULL
+         success:^(AFHTTPRequestOperation *operation, id responseObject) {
+             [fileManager createFileAtPath:video.filePath
+                                  contents:responseObject
+                                attributes:NULL];
+             
+             [tagChanger changeTagsOfVideo:video];
+             video.donwloaded = YES;
+         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+             NSLog(@"%@", error);
+         }];
     
-    NSMutableString *name = [[NSMutableString alloc]initWithString:video.title];
-    [name appendString:@".mp3"];
-    
-    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
-    //comprobar esto
-    video.filePath = filePath;
-    video.donwloaded = ![[NSFileManager defaultManager] fileExistsAtPath: filePath];
-    
-    if(!video.donwloaded && [video isNew]){
-        [manager GET:URL parameters:NULL
-             success:^(AFHTTPRequestOperation *operation, id responseObject) {
-                 //bajamos archivo
-                 [responseObject writeToFile:filePath atomically:YES];
-                 //editamos tags
-                 TagDemo *tagChanger = [[TagDemo alloc]init];
-                 //[tagChanger changeTagsOfVideo:video];
-                 
-             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-                 NSLog(@"%@", error);
-             }];
-    }
 
 }
+
 -(void)forceDownloadVideo:(JPVideo *)video{
     NSMutableString *URL = [[NSMutableString alloc]initWithString:@"http://youtubeinmp3.com/fetch/?video="];
     [URL appendString:video.URL];
     
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,   NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    
-    NSMutableString *name = [[NSMutableString alloc]initWithString:video.title];
-    [name appendString:@".mp3"];
-    
-    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", documentsDirectory,name];
-    
-
+    //comprobar esto
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    [tagChanger changeTagsOfVideo:video];
     [manager GET:URL parameters:NULL
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             
-             [responseObject writeToFile:filePath atomically:YES];
-             
+             [fileManager createFileAtPath:video.filePath
+                                  contents:responseObject
+                                attributes:NULL];
+             NSData *data = [[NSData alloc]initWithData:responseObject];
+             [tagChanger changeTagsOfVideo:video];
+             video.donwloaded = YES;
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", error);
          }];

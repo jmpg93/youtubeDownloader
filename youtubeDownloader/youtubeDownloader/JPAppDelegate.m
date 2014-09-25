@@ -26,7 +26,7 @@
 {
     
     
-    int minutesToRefresh = 10;
+    int minutesToRefresh = 5;
     minutesToRefresh = minutesToRefresh*60;
     
     self.auth = [[GTMOAuth2Authentication alloc]init];

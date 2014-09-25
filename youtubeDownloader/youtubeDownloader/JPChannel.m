@@ -39,14 +39,14 @@
     NSMutableString *URL = [NSMutableString stringWithString:FeedURLStart];
     [URL appendString:self.channelName];
     [URL appendString:FeedURLEnd];
-    [_scrapper scrapWithURL:URL];
+    [_scrapper scrapWithURL:URL OfChannel:self];
 }
 
 -(void)videoScrappingFinishedWithVideos:(NSArray *)videos{
     self.videos = [[NSMutableArray alloc]initWithArray:videos];
     for (JPVideo *video in videos) {
-        video.albumOfSong = self.channelName;
-        [self.donwloader downloadVideo:video];
+        if (![video exists] && [video isNew])
+            [self.donwloader downloadVideo:video];
 
     }
     

@@ -14,17 +14,25 @@
 -(id)initWithDicctionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
+        
         _title = [[dic objectForKey:@"title"]objectForKey:@"text"];
-        _albumOfSong = [[[dic objectForKey:@"author"]objectForKey:@"name"]objectForKey:@"text"];
+        
         NSString *aux = [NSString stringWithString:_title];
         NSRange range = [_title rangeOfString:@" - "];
-        if (range.location < 20) {
+        if (range.location < 100) {
             _artist = [_title substringToIndex:range.location];
             _title = [aux substringFromIndex:range.location + 3];
         }else{
             _artist = _albumOfSong;
         }
         
+        aux = [[[dic objectForKey:@"link"]objectAtIndex:0]objectForKey:@"href"];
+        range = [aux rangeOfString:@"v="];
+        range.length = 11;
+        range.location += 2;
+        aux = [aux substringWithRange:range];
+        
+        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/3.jpg"];
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
@@ -33,7 +41,9 @@
         _published = [[dic objectForKey:@"published"]objectForKey:@"text"];
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
         _donwloaded = false;
-        
+        _thumbnailImage = [[NSImage alloc]init];
+        [self createFilePath];
+        [self getThumbnailImage];
         
         _dateReleased = [JPVideo dateFromString:self.published];
         [self calcDurationInMinutes];
@@ -80,6 +90,45 @@
 
 -(void)addFilePath:(NSString *)path{
     self.filePath = path;
+}
+-(void)getThumbnailImage{
+    
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+
+    [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"image/jpeg"]]];
+    manager.responseSerializer = serializer;
+    
+    
+    //Imagenes en miniatura
+    [manager GET:_thumbnailURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+
+        _thumbnailImage = [[NSImage alloc]initWithData:responseObject];
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+    }];
+
+}
+-(BOOL)exists{
+    
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    BOOL exist = [fileManager fileExistsAtPath: self.filePath];
+    self.donwloaded = !exist;
+    return exist;
+    
+}
+
+-(void)createFilePath{
+    NSMutableString *path = [[NSMutableString alloc]initWithString:@"/Volumes/Disco local 2/jmpg93/Music/"];
+    [path appendString:self.albumOfSong];
+    
+    NSMutableString *name = [[NSMutableString alloc]initWithString:self.title];
+    [name appendString:@".mp3"];
+    
+    NSString  *filePath = [NSString stringWithFormat:@"%@/%@", path,name];
+    
+    self.filePath = filePath;
 }
 
 

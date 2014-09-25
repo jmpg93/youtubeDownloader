@@ -10,6 +10,7 @@
 #import "JPVideo.h"
 #import <XMLReader/XMLReader.h>
 #import <AFNetworking/AFNetworking.h>
+#import "JPChannel.h"
 
 @interface JPVideoScrapper ()
 
@@ -33,18 +34,18 @@
     return self;
 }
 
-- (void)scrapWithURL:(NSString *)URL
+- (void)scrapWithURL:(NSString *)URL OfChannel:(id)channel
 {
     [manager GET:URL
       parameters:nil
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [self scrapWithData:responseObject];
+             [self scrapWithData:responseObject OfChannel:channel];
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"GET failed: %@",error);
          }];
     
 }
-- (void)scrapWithData:(NSData*) data
+- (void)scrapWithData:(NSData*) data OfChannel:(JPChannel *) channel
 {
     dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
         NSDictionary *xmlDictionary = [XMLReader dictionaryForXMLData:data
@@ -57,9 +58,9 @@
         
         for (NSDictionary *videoDic in arrayOfVideoDics) {
             
-            JPVideo *vid = [[JPVideo alloc]
-                            initWithDicctionary:videoDic];
-            
+            JPVideo *vid = [[JPVideo alloc]init];
+            vid.albumOfSong = channel.channelName;
+            vid = [vid initWithDicctionary:videoDic];
             [videos addObject:vid];
             
 

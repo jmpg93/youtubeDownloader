@@ -13,7 +13,8 @@
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *duration;
-@property (nonatomic, strong) NSURL *thumbnailImage;
+@property (nonatomic, strong) NSImage *thumbnailImage;
+@property (nonatomic, strong) NSString *thumbnailURL;
 @property (nonatomic, strong) NSString *URL;
 @property (nonatomic, assign) float rating;
 @property (nonatomic, assign) float max;
@@ -28,5 +29,6 @@
 -(id)initWithDicctionary:(NSDictionary *)dic;
 +(NSDate*) dateFromString:(NSString*)dateString;
 -(BOOL)isNew;
+-(BOOL)exists;
 -(void)addFilePath:(NSString *)path;
 @end
