@@ -25,6 +25,7 @@
 {
     self = [super init];
     if (self) {
+        
         manager = [AFHTTPRequestOperationManager manager];
         AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
         [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"text/html", @"image/jpeg", @"application/atom+xml"]]];

@@ -42,6 +42,7 @@
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
         _donwloaded = false;
         _thumbnailImage = [[NSImage alloc]init];
+        
         [self createFilePath];
         [self getThumbnailImage];
         
@@ -102,8 +103,9 @@
     
     //Imagenes en miniatura
     [manager GET:_thumbnailURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-        _thumbnailImage = [[NSImage alloc]initWithData:responseObject];
+        NSData *checker = responseObject;
+        NSImage *image = [[NSImage alloc]initWithData:checker];
+        self.thumbnailImage = image;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);

@@ -11,18 +11,22 @@
 #import "JPVideo.h"
 #import "TagDemo.h"
 
+#define  URL_YOUTUBE_VIDEO @"http://youtubeinmp3.com/fetch/?video="
 
 
-@implementation JPVideoDownloader : NSObject
+@implementation JPVideoDownloader
 {
     AFHTTPRequestOperationManager *manager;
     TagDemo *tagChanger;
+    int numBytes;
 }
 
 - (id)init
 {
     self = [super init];
     if (self) {
+        
+        numBytes = 15000;
         manager = [AFHTTPRequestOperationManager manager];
         AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
         tagChanger = [[TagDemo alloc]init];
@@ -33,18 +37,27 @@
     return self;
 }
 -(void)downloadVideo:(JPVideo *)video{
-    NSMutableString *URL = [[NSMutableString alloc]initWithString:@"http://youtubeinmp3.com/fetch/?video="];
+    NSMutableString *URL = [[NSMutableString alloc]initWithString:URL_YOUTUBE_VIDEO];
     [URL appendString:video.URL];
 
     NSFileManager *fileManager = [NSFileManager defaultManager];
     
     [manager GET:URL parameters:NULL
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [fileManager createFileAtPath:video.filePath
-                                  contents:responseObject
-                                attributes:NULL];
+             NSData *checker = responseObject;
+             int bytes = (int)checker.length;
              
-             [tagChanger changeTagsOfVideo:video];
+             if (bytes > numBytes) {
+                 [fileManager createFileAtPath:video.filePath
+                                      contents:responseObject
+                                    attributes:NULL];
+                 [tagChanger changeTagsOfVideo:video];
+             }else{
+                 NSLog(@"error downloading");
+             }
+             
+             
+             
              video.donwloaded = YES;
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", error);
@@ -54,20 +67,26 @@
 }
 
 -(void)forceDownloadVideo:(JPVideo *)video{
-    NSMutableString *URL = [[NSMutableString alloc]initWithString:@"http://youtubeinmp3.com/fetch/?video="];
+    NSMutableString *URL = [[NSMutableString alloc]initWithString:URL_YOUTUBE_VIDEO];
     [URL appendString:video.URL];
     
     //comprobar esto
     NSFileManager *fileManager = [NSFileManager defaultManager];
-    [tagChanger changeTagsOfVideo:video];
+    
     [manager GET:URL parameters:NULL
          success:^(AFHTTPRequestOperation *operation, id responseObject) {
-             [fileManager createFileAtPath:video.filePath
-                                  contents:responseObject
-                                attributes:NULL];
-             NSData *data = [[NSData alloc]initWithData:responseObject];
-             [tagChanger changeTagsOfVideo:video];
-             video.donwloaded = YES;
+             NSData *checker = responseObject;
+             int bytes = (int)checker.length;
+             
+             if (bytes > numBytes) {
+                 [fileManager createFileAtPath:video.filePath
+                                      contents:responseObject
+                                    attributes:NULL];
+                 [tagChanger changeTagsOfVideo:video];
+             }else{
+                 NSLog(@"error downloading");
+             }
+             //video.donwloaded = YES;
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", error);
          }];

@@ -24,8 +24,9 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    
-    
+    _progressIndicator = [[NSProgressIndicator alloc]init];
+    [_progressIndicator startAnimation:NULL];
+    _currentChannel = [[NSString alloc]init];
     int minutesToRefresh = 5;
     minutesToRefresh = minutesToRefresh*60;
     
@@ -94,6 +95,7 @@
             
             JPChannel *channel = [self.channelArray objectAtIndex:i];
             
+            self.currentChannel = channel.channelName;
             self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
             [self.videosCollectionView setContent:channel.videos];
             [self.videosCollectionView setNeedsDisplay:YES];
@@ -104,11 +106,13 @@
 #warning this is shit
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
+        self.currentChannel = channel.channelName;
+        
         [self.channelsCollectionView setContent:self.channelArray];
         
         self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
         [self.videosCollectionView setContent:self.videosArray];
-
+        
     });
 }
 

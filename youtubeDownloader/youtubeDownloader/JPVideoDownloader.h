@@ -12,6 +12,8 @@
 #import "JPVideo.h"
 
 @interface JPVideoDownloader : NSObject
+
+
 -(void)downloadVideo:(JPVideo *)video;
 -(void)forceDownloadVideo:(JPVideo *)video;
 

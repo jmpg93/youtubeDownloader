@@ -19,4 +19,9 @@
 @property (strong) IBOutlet NSCollectionView *videosCollectionView;
 @property (strong) IBOutlet NSCollectionView *channelsCollectionView;
 
+@property (strong) IBOutlet NSString *currentChannel;
+@property (nonatomic)NSProgressIndicator* progressIndicator;
+
+
+
 @end
