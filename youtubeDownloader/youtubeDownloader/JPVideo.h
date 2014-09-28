@@ -14,6 +14,8 @@
 @property (nonatomic, strong) NSString *artist;
 @property (nonatomic, strong) NSString *duration;
 @property (nonatomic, strong) NSImage *thumbnailImage;
+
+@property (nonatomic, assign) int test;
 @property (nonatomic, strong) NSString *thumbnailURL;
 @property (nonatomic, strong) NSString *URL;
 @property (nonatomic, assign) float rating;
@@ -31,4 +33,5 @@
 -(BOOL)isNew;
 -(BOOL)exists;
 -(void)addFilePath:(NSString *)path;
+
 @end

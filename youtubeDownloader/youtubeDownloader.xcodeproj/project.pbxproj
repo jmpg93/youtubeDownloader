@@ -159,6 +159,7 @@
 		6C19F2B6193A13F30042096D /* youtubeDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				6CB4DB9B19D784CA0001C25E /* Others */,
 				6CB326D119D3386600DF0D8F /* Tags */,
 				6CB326D019D3385A00DF0D8F /* Models */,
 				6C19F2F5193A45BE0042096D /* JPVideoDownloader.h */,
@@ -222,6 +223,13 @@
 				6C7F2D4E19D1C8AE00750E41 /* TagDemo.mm */,
 			);
 			name = Tags;
+			sourceTree = "<group>";
+		};
+		6CB4DB9B19D784CA0001C25E /* Others */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Others;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

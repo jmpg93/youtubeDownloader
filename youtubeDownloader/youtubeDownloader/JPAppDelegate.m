@@ -48,30 +48,32 @@
     [majesticcasual setDelegate:self];
     [majesticcasual loadData];
     [self.channelArray addObject:majesticcasual];
-    
-    JPChannel *MrSuicideSheep = [[JPChannel alloc]initWithName:@"MrSuicideSheep"];
-    [MrSuicideSheep setDelegate:self];
-    [MrSuicideSheep loadData];
-    [self.channelArray addObject:MrSuicideSheep];
-    
-    JPChannel *PandoraMuslc = [[JPChannel alloc]initWithName:@"PandoraMuslc"];
-    [PandoraMuslc setDelegate:self];
-    [PandoraMuslc loadData];
-    [self.channelArray addObject:PandoraMuslc];
-    
-    
-    JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
-    [soundisstyle setDelegate:self];
-    [soundisstyle loadData];
-    [self.channelArray addObject:soundisstyle];
-    
+//    
+//    JPChannel *MrSuicideSheep = [[JPChannel alloc]initWithName:@"MrSuicideSheep"];
+//    [MrSuicideSheep setDelegate:self];
+//    [MrSuicideSheep loadData];
+//    [self.channelArray addObject:MrSuicideSheep];
+//    
+//    JPChannel *PandoraMuslc = [[JPChannel alloc]initWithName:@"PandoraMuslc"];
+//    [PandoraMuslc setDelegate:self];
+//    [PandoraMuslc loadData];
+//    [self.channelArray addObject:PandoraMuslc];
+//    
+//    
+//    JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
+//    [soundisstyle setDelegate:self];
+//    [soundisstyle loadData];
+//    [self.channelArray addObject:soundisstyle];
+//    
     
     for (JPChannel *chan in self.channelArray) {
         [chan refreshWithTimeInterval:minutesToRefresh];
     }
 }
 
-
+-(void)loadDataOfChannels{
+    
+}
 - (IBAction)donwloadVideo:(id)sender {
     
     NSButton *but = (NSButton*)sender;

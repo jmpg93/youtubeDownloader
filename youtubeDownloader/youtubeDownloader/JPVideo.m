@@ -14,7 +14,7 @@
 -(id)initWithDicctionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        
+        _test = 0;
         _title = [[dic objectForKey:@"title"]objectForKey:@"text"];
         
         NSString *aux = [NSString stringWithString:_title];
@@ -32,7 +32,7 @@
         range.location += 2;
         aux = [aux substringWithRange:range];
         
-        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/3.jpg"];
+        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/0.jpg"];
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
@@ -48,6 +48,7 @@
         
         _dateReleased = [JPVideo dateFromString:self.published];
         [self calcDurationInMinutes];
+        //NSLog(@"paso por video init");
     }
     return self;
 }
@@ -93,31 +94,57 @@
     self.filePath = path;
 }
 -(void)getThumbnailImage{
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+    [self getThumbnailImage2];
+//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+//    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
+//
+//    [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"image/jpeg"]]];
+//    manager.responseSerializer = serializer;
+//    
+//    
+//    //Imagenes en miniatura
+//    if (true) {
+//        
+//    [manager GET:self.thumbnailURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+//        NSData *checker = responseObject;
+//        NSImage *image = [[NSImage alloc]initWithData:checker];
+//        self.thumbnailImage = image;
+//        NSLog(@"paso por thumnbnailImage");
+//        
+//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+//        NSLog(@"Error: %@", error);
+//    }];
+//    }
 
-    [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"image/jpeg"]]];
-    manager.responseSerializer = serializer;
-    
-    
-    //Imagenes en miniatura
-    [manager GET:_thumbnailURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        NSData *checker = responseObject;
-        NSImage *image = [[NSImage alloc]initWithData:checker];
-        self.thumbnailImage = image;
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error: %@", error);
-    }];
+}
+-(void)getThumbnailImage2{
+ 
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSURLRequest *req = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.thumbnailURL]];
+        AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+        requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+        [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSBitmapImageRep *repre = responseObject;
+            NSData *data = [repre TIFFRepresentation];
+            //NSLog(@"Response: %@", responseObject);
+            //NSLog(@"Response: %@", data);
+            self.thumbnailImage = [[NSImage alloc]initWithData:data];
+            NSLog(@"Descagada imagen: %@", self.title);
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Image error: %@", error);
+        }];
+        [requestOperation start];
+    });
 
 }
 -(BOOL)exists{
     
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL exist = [fileManager fileExistsAtPath: self.filePath];
+    //NSData *song = [[NSData alloc]initWithContentsOfFile:self.filePath];
     self.donwloaded = !exist;
     return exist;
+    
     
 }
 

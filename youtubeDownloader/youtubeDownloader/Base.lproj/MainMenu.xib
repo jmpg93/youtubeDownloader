@@ -794,12 +794,12 @@
             </view>
             <point key="canvasLocation" x="152" y="152"/>
         </window>
-        <collectionViewItem id="N8v-ca-HR0">
+        <collectionViewItem id="N8v-ca-HR0" userLabel="video">
             <connections>
                 <outlet property="view" destination="mXJ-ne-aPF" id="Y51-6b-s7f"/>
             </connections>
         </collectionViewItem>
-        <view id="mXJ-ne-aPF">
+        <view wantsLayer="YES" id="mXJ-ne-aPF">
             <rect key="frame" x="0.0" y="0.0" width="476" height="83"/>
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
@@ -873,7 +873,10 @@
                 </textField>
                 <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dw7-Ye-kaq">
                     <rect key="frame" x="0.0" y="1" width="118" height="80"/>
-                    <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="TR6-xF-Uw3"/>
+                    <imageCell key="cell" selectable="YES" refusesFirstResponder="YES" alignment="left" id="TR6-xF-Uw3"/>
+                    <connections>
+                        <binding destination="N8v-ca-HR0" name="value" keyPath="representedObject.thumbnailImage" id="ylT-Kt-DUI"/>
+                    </connections>
                 </imageView>
             </subviews>
             <constraints>
@@ -902,7 +905,7 @@
             </connections>
         </arrayController>
         <userDefaultsController representsSharedInstance="YES" id="gf5-0E-5IR"/>
-        <collectionViewItem id="vUf-6B-sO5">
+        <collectionViewItem id="vUf-6B-sO5" userLabel="canal">
             <connections>
                 <outlet property="view" destination="48I-1R-qfs" id="4Lq-kM-430"/>
             </connections>

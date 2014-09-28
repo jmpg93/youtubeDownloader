@@ -55,6 +55,7 @@
              }else{
                  NSLog(@"error downloading");
              }
+             NSLog(@"paso por downloadVideo");
              
              
              
@@ -84,9 +85,11 @@
                                     attributes:NULL];
                  [tagChanger changeTagsOfVideo:video];
              }else{
+                 video.donwloaded = NO;
                  NSLog(@"error downloading");
              }
              //video.donwloaded = YES;
+             NSLog(@"paso por forcedownloadVideo");
          } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
              NSLog(@"%@", error);
          }];
