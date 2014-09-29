@@ -25,7 +25,7 @@
 {
     self = [super init];
     if (self) {
-        
+        _spinning = [[NSProgressIndicator alloc]init];
         numBytes = 15000;
         manager = [AFHTTPRequestOperationManager manager];
         AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
@@ -37,6 +37,7 @@
     return self;
 }
 -(void)downloadVideo:(JPVideo *)video{
+   
     NSMutableString *URL = [[NSMutableString alloc]initWithString:URL_YOUTUBE_VIDEO];
     [URL appendString:video.URL];
 
@@ -52,11 +53,10 @@
                                       contents:responseObject
                                     attributes:NULL];
                  [tagChanger changeTagsOfVideo:video];
+                 
              }else{
                  NSLog(@"error downloading");
              }
-             NSLog(@"paso por downloadVideo");
-             
              
              
              video.donwloaded = YES;
@@ -68,6 +68,8 @@
 }
 
 -(void)forceDownloadVideo:(JPVideo *)video{
+    [self.spinning startAnimation:NULL];
+    
     NSMutableString *URL = [[NSMutableString alloc]initWithString:URL_YOUTUBE_VIDEO];
     [URL appendString:video.URL];
     

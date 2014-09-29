@@ -12,7 +12,7 @@
 #import "JPVideo.h"
 
 @interface JPVideoDownloader : NSObject
-
+@property (nonatomic, strong) IBOutlet NSProgressIndicator* spinning;
 
 -(void)downloadVideo:(JPVideo *)video;
 -(void)forceDownloadVideo:(JPVideo *)video;

@@ -62,6 +62,7 @@
             JPVideo *vid = [[JPVideo alloc]init];
             vid.albumOfSong = channel.channelName;
             vid = [vid initWithDicctionary:videoDic];
+            [vid downloadImage];
             [videos addObject:vid];
             
 

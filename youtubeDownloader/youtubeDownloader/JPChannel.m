@@ -44,13 +44,14 @@
 
 -(void)videoScrappingFinishedWithVideos:(NSArray *)videos{
     self.videos = [[NSMutableArray alloc]initWithArray:videos];
+    [self.delegate channelHasInfoOfVideos:self];
     for (JPVideo *video in videos) {
         if (![video exists] && [video isNew])
             [self.donwloader downloadVideo:video];
 
     }
     
-    [self.delegate channelHasInfoOfVideos:self];
+    
 }
 -(void)downLoadLatestVideo{
     if (self.videos) {

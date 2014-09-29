@@ -24,8 +24,8 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    _progressIndicator = [[NSProgressIndicator alloc]init];
-    [_progressIndicator startAnimation:NULL];
+    _addChannelTextField = [[NSTextField alloc]init];
+
     _currentChannel = [[NSString alloc]init];
     int minutesToRefresh = 5;
     minutesToRefresh = minutesToRefresh*60;
@@ -39,39 +39,36 @@
     [self.channelsCollectionView setSelectable:YES];
     
     // Insert code here to initialize your application
-    JPChannel *channel = [[JPChannel alloc]initWithName:@"electropose1"];;
-    [channel setDelegate:self];
-    [channel loadData];
-    [self.channelArray addObject:channel];
+    JPChannel *electropose1 = [[JPChannel alloc]initWithName:@"electropose1"];;
+    [self.channelArray addObject:electropose1];
     
     JPChannel *majesticcasual = [[JPChannel alloc]initWithName:@"majesticcasual"];
-    [majesticcasual setDelegate:self];
-    [majesticcasual loadData];
     [self.channelArray addObject:majesticcasual];
-//    
-//    JPChannel *MrSuicideSheep = [[JPChannel alloc]initWithName:@"MrSuicideSheep"];
-//    [MrSuicideSheep setDelegate:self];
-//    [MrSuicideSheep loadData];
-//    [self.channelArray addObject:MrSuicideSheep];
-//    
-//    JPChannel *PandoraMuslc = [[JPChannel alloc]initWithName:@"PandoraMuslc"];
-//    [PandoraMuslc setDelegate:self];
-//    [PandoraMuslc loadData];
-//    [self.channelArray addObject:PandoraMuslc];
-//    
-//    
-//    JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
-//    [soundisstyle setDelegate:self];
-//    [soundisstyle loadData];
-//    [self.channelArray addObject:soundisstyle];
-//    
     
+    JPChannel *MrSuicideSheep = [[JPChannel alloc]initWithName:@"MrSuicideSheep"];
+    [self.channelArray addObject:MrSuicideSheep];
+    
+    JPChannel *PandoraMuslc = [[JPChannel alloc]initWithName:@"PandoraMuslc"];
+    [self.channelArray addObject:PandoraMuslc];
+    
+    
+    JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
+    [self.channelArray addObject:soundisstyle];
+
+    [self loadDataOfChannels];
     for (JPChannel *chan in self.channelArray) {
         [chan refreshWithTimeInterval:minutesToRefresh];
     }
 }
 
 -(void)loadDataOfChannels{
+    for(JPChannel *channel in self.channelArray){
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            [channel setDelegate:self];
+            [channel loadData];
+        });
+
+    }
     
 }
 - (IBAction)donwloadVideo:(id)sender {
@@ -85,6 +82,7 @@
             [but setEnabled:NO];
             [but setNeedsDisplay:YES];
             [self.donwloader forceDownloadVideo:video];
+            return;
         }
     }
 }
@@ -98,24 +96,34 @@
             JPChannel *channel = [self.channelArray objectAtIndex:i];
             
             self.currentChannel = channel.channelName;
+
+            
             self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
-            [self.videosCollectionView setContent:channel.videos];
-            [self.videosCollectionView setNeedsDisplay:YES];
+            return;
         }
     }
 }
+
 -(void)channelHasInfoOfVideos:(JPChannel *)channel{
 #warning this is shit
+    
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         self.currentChannel = channel.channelName;
         
         [self.channelsCollectionView setContent:self.channelArray];
         
-        self.videosArray = [NSMutableArray arrayWithArray:channel.videos];
-        [self.videosCollectionView setContent:self.videosArray];
+        self.videosArray = [NSMutableArray arrayWithArray:((JPChannel *)self.channelArray[0]).videos];
         
     });
 }
+- (IBAction)addChannel:(id)sender {
+    NSLog (@"%@", self.addChannelTextField.stringValue);
+    //[self.addChannelTextField setStringValue:@"hola"];
+    
+}
+
+
+
 
 @end

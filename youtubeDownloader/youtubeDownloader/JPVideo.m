@@ -14,7 +14,6 @@
 -(id)initWithDicctionary:(NSDictionary *)dic{
     self = [super init];
     if (self) {
-        _test = 0;
         _title = [[dic objectForKey:@"title"]objectForKey:@"text"];
         
         NSString *aux = [NSString stringWithString:_title];
@@ -32,7 +31,7 @@
         range.location += 2;
         aux = [aux substringWithRange:range];
         
-        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/0.jpg"];
+        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/1.jpg"];
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
@@ -42,13 +41,12 @@
         _description = [[[dic objectForKey:@"group"]objectForKey:@"description"]objectForKey:@"text"];
         _donwloaded = false;
         _thumbnailImage = [[NSImage alloc]init];
-        
+        [self downloadImage];
         [self createFilePath];
-        [self getThumbnailImage];
         
         _dateReleased = [JPVideo dateFromString:self.published];
         [self calcDurationInMinutes];
-        //NSLog(@"paso por video init");
+    
     }
     return self;
 }
@@ -90,53 +88,55 @@
     return isNew;
 }
 
--(void)addFilePath:(NSString *)path{
-    self.filePath = path;
-}
--(void)getThumbnailImage{
-    [self getThumbnailImage2];
-//    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-//    AFHTTPResponseSerializer *serializer = [AFHTTPResponseSerializer serializer];
-//
-//    [serializer setAcceptableContentTypes:[NSSet setWithArray:@[@"image/jpeg"]]];
-//    manager.responseSerializer = serializer;
-//    
-//    
-//    //Imagenes en miniatura
-//    if (true) {
-//        
-//    [manager GET:self.thumbnailURL parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-//        NSData *checker = responseObject;
-//        NSImage *image = [[NSImage alloc]initWithData:checker];
-//        self.thumbnailImage = image;
-//        NSLog(@"paso por thumnbnailImage");
-//        
-//    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-//        NSLog(@"Error: %@", error);
-//    }];
-//    }
+
+-(void)getThumbnailImageInView:(NSView *) view{
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"antes");
+        NSURLRequest *req = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.thumbnailURL]];
+        
+            AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
+            requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
+            [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+                
+                NSBitmapImageRep *repre = responseObject;
+                NSData *data = [repre TIFFRepresentation];
+                self.thumbnailImage = [[NSImage alloc]initWithData:data];
+                NSImageView *imageView = [[NSImageView alloc]initWithFrame:CGRectMake(0, 0, 115, 83)];
+                imageView.image = self.thumbnailImage;
+                [view addSubview:imageView];
+                
+            } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+                NSLog(@"Image error: %@", error);
+            }];
+            [requestOperation start];
+    });
+        
 
 }
--(void)getThumbnailImage2{
- 
+-(void)downloadImage{
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        NSLog(@"antes");
         NSURLRequest *req = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.thumbnailURL]];
+        
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
         requestOperation.responseSerializer = [AFImageResponseSerializer serializer];
         [requestOperation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             NSBitmapImageRep *repre = responseObject;
             NSData *data = [repre TIFFRepresentation];
-            //NSLog(@"Response: %@", responseObject);
-            //NSLog(@"Response: %@", data);
             self.thumbnailImage = [[NSImage alloc]initWithData:data];
-            NSLog(@"Descagada imagen: %@", self.title);
+
+            
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Image error: %@", error);
         }];
         [requestOperation start];
     });
-
+    
 }
+
 -(BOOL)exists{
     
     NSFileManager *fileManager = [NSFileManager defaultManager];

@@ -18,9 +18,10 @@
 
 @property (strong) IBOutlet NSCollectionView *videosCollectionView;
 @property (strong) IBOutlet NSCollectionView *channelsCollectionView;
+@property (strong) IBOutlet NSTextField *addChannelTextField;
+@property (weak) IBOutlet NSButton *addChannelButton;
 
 @property (strong) IBOutlet NSString *currentChannel;
-@property (nonatomic)NSProgressIndicator* progressIndicator;
 
 
 
