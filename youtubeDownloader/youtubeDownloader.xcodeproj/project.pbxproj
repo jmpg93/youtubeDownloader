@@ -14,7 +14,6 @@
 		6C19F2C1193A13F30042096D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2BF193A13F30042096D /* Credits.rtf */; };
 		6C19F2C4193A13F30042096D /* JPAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2C3193A13F30042096D /* JPAppDelegate.m */; };
 		6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2C5193A13F30042096D /* MainMenu.xib */; };
-		6C19F2C9193A13F30042096D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2C8193A13F30042096D /* Images.xcassets */; };
 		6C19F2D1193A13F30042096D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C19F2B0193A13F30042096D /* Cocoa.framework */; };
 		6C19F2D9193A13F30042096D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6C19F2D7193A13F30042096D /* InfoPlist.strings */; };
 		6C19F2DB193A13F30042096D /* youtubeDownloaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C19F2DA193A13F30042096D /* youtubeDownloaderTests.m */; };
@@ -29,6 +28,7 @@
 		6CA4E1B31942439A008171D0 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */; };
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
 		6CB326CF19D3385400DF0D8F /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB326CE19D3385400DF0D8F /* AppIcon.png */; };
+		6CB88ED519DC69220012E1EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB88ED419DC69220012E1EA /* Images.xcassets */; };
 		6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EC19428A5D006F35F1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -57,7 +57,6 @@
 		6C19F2C2193A13F30042096D /* JPAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JPAppDelegate.h; sourceTree = "<group>"; };
 		6C19F2C3193A13F30042096D /* JPAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JPAppDelegate.m; sourceTree = "<group>"; };
 		6C19F2C6193A13F30042096D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		6C19F2C8193A13F30042096D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6C19F2CE193A13F30042096D /* youtubeDownloaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = youtubeDownloaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C19F2D6193A13F30042096D /* youtubeDownloaderTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "youtubeDownloaderTests-Info.plist"; sourceTree = "<group>"; };
 		6C19F2D8193A13F30042096D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -76,6 +75,7 @@
 		6CA4E1B21942439A008171D0 /* libstdc++.6.0.9.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.0.9.dylib"; path = "usr/lib/libstdc++.6.0.9.dylib"; sourceTree = SDKROOT; };
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		6CB326CE19D3385400DF0D8F /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
+		6CB88ED419DC69220012E1EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
 		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
@@ -169,7 +169,7 @@
 				6C19F2C2193A13F30042096D /* JPAppDelegate.h */,
 				6C19F2C3193A13F30042096D /* JPAppDelegate.m */,
 				6C19F2C5193A13F30042096D /* MainMenu.xib */,
-				6C19F2C8193A13F30042096D /* Images.xcassets */,
+				6CB88ED419DC69220012E1EA /* Images.xcassets */,
 				6C19F2B7193A13F30042096D /* Supporting Files */,
 			);
 			path = youtubeDownloader;
@@ -312,7 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C19F2BB193A13F30042096D /* InfoPlist.strings in Resources */,
-				6C19F2C9193A13F30042096D /* Images.xcassets in Resources */,
+				6CB88ED519DC69220012E1EA /* Images.xcassets in Resources */,
 				6CB326CF19D3385400DF0D8F /* AppIcon.png in Resources */,
 				6C19F2C1193A13F30042096D /* Credits.rtf in Resources */,
 				6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */,
@@ -519,7 +519,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -541,7 +540,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9BBE709C96EB4F80BA1D0BB8 /* Pods.xcconfig */;
 			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_INPUT_FILETYPE = sourcecode.cpp.objcpp;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;

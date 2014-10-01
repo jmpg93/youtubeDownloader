@@ -21,6 +21,7 @@
 @property (strong) IBOutlet NSTextField *addChannelTextField;
 @property (weak) IBOutlet NSButton *addChannelButton;
 
+
 @property (strong) IBOutlet NSString *currentChannel;
 
 

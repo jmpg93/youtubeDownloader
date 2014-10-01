@@ -25,6 +25,9 @@
 @property (nonatomic, strong) NSDate *dateReleased;
 @property (nonatomic, strong) NSString *filePath;
 @property (nonatomic, assign) BOOL donwloaded;
+@property (nonatomic, assign) BOOL imageSee;
+
+@property (nonatomic, strong) NSImage *donwloadImage;
 
 -(id)initWithDicctionary:(NSDictionary *)dic;
 +(NSDate*) dateFromString:(NSString*)dateString;

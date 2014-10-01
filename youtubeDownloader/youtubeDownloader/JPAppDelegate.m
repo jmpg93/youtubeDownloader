@@ -55,6 +55,10 @@
     JPChannel *soundisstyle = [[JPChannel alloc]initWithName:@"soundisstyle"];
     [self.channelArray addObject:soundisstyle];
 
+    JPChannel *LaBelleChannel = [[JPChannel alloc]initWithName:@"LaBelleChannel"];
+    [self.channelArray addObject:LaBelleChannel];
+    
+    
     [self loadDataOfChannels];
     for (JPChannel *chan in self.channelArray) {
         [chan refreshWithTimeInterval:minutesToRefresh];
@@ -81,6 +85,8 @@
             JPVideo *video = [self.videosArray objectAtIndex:i];
             [but setEnabled:NO];
             [but setNeedsDisplay:YES];
+            video.donwloaded = NO;
+            self.window.viewsNeedDisplay = YES;
             [self.donwloader forceDownloadVideo:video];
             return;
         }

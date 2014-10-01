@@ -24,14 +24,15 @@
         }else{
             _artist = _albumOfSong;
         }
-        
+        _donwloaded = NO;
+        _imageSee = NO;
         aux = [[[dic objectForKey:@"link"]objectAtIndex:0]objectForKey:@"href"];
         range = [aux rangeOfString:@"v="];
         range.length = 11;
         range.location += 2;
         aux = [aux substringWithRange:range];
         
-        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/1.jpg"];
+        _thumbnailURL = [NSString stringWithFormat:@"%@/%@%@", @"http://img.youtube.com/vi", aux,@"/0.jpg"];
         _duration = [[[dic objectForKey:@"group"]objectForKey:@"duration"]objectForKey:@"seconds"];
         _URL = [[[dic objectForKey:@"group"]objectForKey:@"player"]objectForKey:@"url"];
         _rating = [[[dic objectForKey:@"rating"]objectForKey:@"average"] floatValue];
@@ -42,6 +43,7 @@
         _donwloaded = false;
         _thumbnailImage = [[NSImage alloc]init];
         [self downloadImage];
+        _donwloadImage = [[NSImage alloc]initByReferencingFile:@"/Users/jmpg93/Development/YD/youtubeDownloader/arrow.png"];
         [self createFilePath];
         
         _dateReleased = [JPVideo dateFromString:self.published];
@@ -117,7 +119,7 @@
 -(void)downloadImage{
     
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        NSLog(@"antes");
+        //NSLog(@"antes");
         NSURLRequest *req = [[NSURLRequest alloc]initWithURL:[NSURL URLWithString:self.thumbnailURL]];
         
         AFHTTPRequestOperation *requestOperation = [[AFHTTPRequestOperation alloc] initWithRequest:req];
@@ -143,6 +145,7 @@
     BOOL exist = [fileManager fileExistsAtPath: self.filePath];
     //NSData *song = [[NSData alloc]initWithContentsOfFile:self.filePath];
     self.donwloaded = !exist;
+    self.imageSee = exist;
     return exist;
     
     

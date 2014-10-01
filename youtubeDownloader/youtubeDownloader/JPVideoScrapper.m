@@ -57,15 +57,23 @@
         NSMutableArray *arrayOfVideoDics = [xmlDictionary objectForKey:@"entry"];
         NSMutableArray *videos = [[NSMutableArray alloc]init];
         
-        for (NSDictionary *videoDic in arrayOfVideoDics) {
-            
+//        for (NSDictionary *videoDic in arrayOfVideoDics) {
+//            
+//            JPVideo *vid = [[JPVideo alloc]init];
+//            vid.albumOfSong = channel.channelName;
+//            vid = [vid initWithDicctionary:videoDic];
+//            [vid downloadImage];
+//            [videos addObject:vid];
+//            
+//
+//        }
+        for (int i = 0; i < 20; i++){
             JPVideo *vid = [[JPVideo alloc]init];
+            NSDictionary *dic = arrayOfVideoDics[i];
             vid.albumOfSong = channel.channelName;
-            vid = [vid initWithDicctionary:videoDic];
+            vid = [vid initWithDicctionary:dic];
             [vid downloadImage];
             [videos addObject:vid];
-            
-
         }
         
         [self.delegate videoScrappingFinishedWithVideos:videos];
