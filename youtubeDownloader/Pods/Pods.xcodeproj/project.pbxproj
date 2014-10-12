@@ -30,6 +30,7 @@
 		60856B5A1ECE464D9610E1F4 /* GTMHTTPUploadFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B47803D4ABA4BAE926EAB00 /* GTMHTTPUploadFetcher.m */; };
 		61014990328A4D5E8AFEEBDB /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36F9AF223F644AA2964876BB /* Cocoa.framework */; };
 		63718F5E0CC848ABB0B808B4 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DD29EB5DB9A4582AA2CE809 /* CoreServices.framework */; };
+		6C27974A19DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C27974919DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.m */; };
 		6E97F2EA074548F3AF414898 /* GTMReadMonitorInputStream.m in Sources */ = {isa = PBXBuildFile; fileRef = CD38E5ABF4044119BCFAB54F /* GTMReadMonitorInputStream.m */; };
 		720E84DF765A49BEA398AC23 /* GTMOAuth2WindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5B8EDA3BD884C488A7480E5 /* GTMOAuth2WindowController.m */; };
 		730BE8D359F14C20BB694604 /* AFURLResponseSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 97969BD017D243E99ADA2787 /* AFURLResponseSerialization.h */; };
@@ -146,6 +147,8 @@
 		6007005E96AE47679F26A079 /* GTMHTTPFetchHistory.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = GTMHTTPFetchHistory.m; path = Source/GTMHTTPFetchHistory.m; sourceTree = "<group>"; };
 		6154C19C6EF442FB92B07B70 /* Pods-environment.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-environment.h"; sourceTree = "<group>"; };
 		69DFDF646BB64B56BC8A58B8 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = AFHTTPRequestOperationManager.h; path = AFNetworking/AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
+		6C27974819DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TimeoutAFHTTPRequestSerializer.h; path = ../../youtubeDownloader/TimeoutAFHTTPRequestSerializer.h; sourceTree = "<group>"; };
+		6C27974919DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TimeoutAFHTTPRequestSerializer.m; path = ../../youtubeDownloader/TimeoutAFHTTPRequestSerializer.m; sourceTree = "<group>"; };
 		6C73F0FFA3F94DF88EFDCEFC /* GTMOAuth2SignIn.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMOAuth2SignIn.h; path = Source/GTMOAuth2SignIn.h; sourceTree = "<group>"; };
 		6D383AC1C49742F7AB083CF2 /* GTMGatherInputStream.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = GTMGatherInputStream.h; path = Source/GTMGatherInputStream.h; sourceTree = "<group>"; };
 		790DCA071AA74B709C6DF067 /* libPods-gtm-oauth2.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-gtm-oauth2.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -248,6 +251,8 @@
 				AB44E4A5DA5D4E97B0307894 /* AFHTTPRequestOperation.m */,
 				69DFDF646BB64B56BC8A58B8 /* AFHTTPRequestOperationManager.h */,
 				7ADE85226CA2441BAA28A84B /* AFHTTPRequestOperationManager.m */,
+				6C27974819DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.h */,
+				6C27974919DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.m */,
 				DD52721DB2594611849CE7A0 /* AFURLConnectionOperation.h */,
 				95EC7D5BF58B46389BCF34B2 /* AFURLConnectionOperation.m */,
 			);
@@ -662,6 +667,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C27974A19DC9BA1005A8973 /* TimeoutAFHTTPRequestSerializer.m in Sources */,
 				C21A7EED7DA246B1895EE94C /* Pods-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

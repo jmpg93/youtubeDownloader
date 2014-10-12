@@ -29,6 +29,7 @@
 		6CA4E1B5194243AF008171D0 /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */; };
 		6CB326CF19D3385400DF0D8F /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CB326CE19D3385400DF0D8F /* AppIcon.png */; };
 		6CB88ED519DC69220012E1EA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB88ED419DC69220012E1EA /* Images.xcassets */; };
+		6CC2BCB519EADC970033C91B /* AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6CC2BCB419EADC970033C91B /* AppIcon.png */; };
 		6CC427ED19428A5D006F35F1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6CC427EC19428A5D006F35F1 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +77,7 @@
 		6CA4E1B4194243AF008171D0 /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		6CB326CE19D3385400DF0D8F /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		6CB88ED419DC69220012E1EA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		6CC2BCB419EADC970033C91B /* AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AppIcon.png; sourceTree = "<group>"; };
 		6CC427EC19428A5D006F35F1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		6CC427EE19428F22006F35F1 /* libid3-3.8.3.0.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libid3-3.8.3.0.0.dylib"; path = "../../../../../usr/local/lib/libid3-3.8.3.0.0.dylib"; sourceTree = "<group>"; };
 		6CC427F019428F32006F35F1 /* libid3.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libid3.a; path = ../../../../../usr/local/lib/libid3.a; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 		6C19F2B7193A13F30042096D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6CC2BCB419EADC970033C91B /* AppIcon.png */,
 				6C19F2B8193A13F30042096D /* youtubeDownloader-Info.plist */,
 				6C19F2B9193A13F30042096D /* InfoPlist.strings */,
 				6C19F2BC193A13F30042096D /* main.m */,
@@ -313,6 +316,7 @@
 			files = (
 				6C19F2BB193A13F30042096D /* InfoPlist.strings in Resources */,
 				6CB88ED519DC69220012E1EA /* Images.xcassets in Resources */,
+				6CC2BCB519EADC970033C91B /* AppIcon.png in Resources */,
 				6CB326CF19D3385400DF0D8F /* AppIcon.png in Resources */,
 				6C19F2C1193A13F30042096D /* Credits.rtf in Resources */,
 				6C19F2C7193A13F30042096D /* MainMenu.xib in Resources */,
